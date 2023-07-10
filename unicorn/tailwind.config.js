@@ -7,8 +7,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': 'yellow',
+        'primary': '#FF6A00',
+        'menuSection': "#EFEFEF",
+
       },
+      backgroundImage: {
+        'banner': "url('/public/images/Banner.png')",
+      }
     },
   },
   plugins: [],

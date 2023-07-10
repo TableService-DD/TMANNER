@@ -1,0 +1,52 @@
+{
+  "BURGER": [
+    {
+      "name": "Cheese Burger",
+      "price": 10000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    },
+
+    {
+      "name": "Double Cheese Burger",
+      "price": 15000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    },
+    {
+      "name": "Spicy Shrimp Burger",
+      "price": 20000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    }
+  ],
+  "SANDWICH": [
+    {
+      "name": "Cheese Sandwich",
+      "price": 10000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    },
+    {
+      "name": "Shrimp Pasta Sandwich",
+      "price": 15000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    },
+    {
+      "name": "Spicy Shrimp Sandwich",
+      "price": 20000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    },
+    {
+      "name": "Signature Sandwich",
+      "price": 17000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    },
+    {
+      "name": "Chicken Sandwich",
+      "price": 15000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    },
+    {
+      "name": "Beef Sandwich",
+      "price": 15000,
+      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+    }
+  ]
+}
