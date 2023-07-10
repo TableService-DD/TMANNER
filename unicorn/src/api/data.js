@@ -1,13 +1,11 @@
-import { useEffect } from "react";
+import axios from "axios";
 
-export default function Menu() {
-    const [menu, setMenu] = useState(null);
-
-    useEffect(() => {
-        async function fetchData() {
-            const result = await axios.get('/data/menu.json');
-            // JSON 데이터를 가져온 후 상태를 설정합니다.
-            setMenu(result.data);
-        }
-        fetchData();
-    }, []);
+export async function fetchMenuData() {
+    try {
+        const response = await axios.get("/data/menu.json");
+        return response.data;
+    } catch (error) {
+        console.error("데이터 가져오기 실패:", error);
+        return null;
+    }
+}

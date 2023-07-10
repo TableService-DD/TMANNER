@@ -1,52 +1,61 @@
 {
   "BURGER": [
     {
-      "name": "Cheese Burger",
+      "name": "Cheese",
       "price": 10000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image88.png",
+      "isBest": true
     },
 
     {
-      "name": "Double Cheese Burger",
+      "name": "Double Cheese",
       "price": 15000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image93.png",
+      "isBest": true
     },
     {
-      "name": "Spicy Shrimp Burger",
+      "name": "Spicy Shrimp",
       "price": 20000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image90.png",
+      "isBest": false
     }
   ],
   "SANDWICH": [
     {
       "name": "Cheese Sandwich",
       "price": 10000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image94.png",
+      "isBest": true
     },
     {
       "name": "Shrimp Pasta Sandwich",
       "price": 15000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image95.png",
+      "isBest": false
     },
     {
       "name": "Spicy Shrimp Sandwich",
       "price": 20000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image96.png",
+      "isBest": false
     },
     {
       "name": "Signature Sandwich",
       "price": 17000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image94.png",
+      "isBest": true
     },
     {
       "name": "Chicken Sandwich",
       "price": 15000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image95.png",
+      "isBest": false
     },
     {
       "name": "Beef Sandwich",
       "price": 15000,
-      "image": "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"
+      "image": "/images/menuImage/image96.png",
+      "isBest": false
     }
   ]
 }
