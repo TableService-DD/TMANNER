@@ -21,64 +21,42 @@
       "isBest": false
     }
   ],
-  "BURGER2": [
-    {
-      "name": "Cheese",
-      "price": 10000,
-      "image": "/images/menuImage/image88.png",
-      "isBest": true
-    },
-
-    {
-      "name": "Double Cheese",
-      "price": 15000,
-      "image": "/images/menuImage/image93.png",
-      "isBest": true
-    },
-    {
-      "name": "Spicy Shrimp",
-      "price": 20000,
-      "image": "/images/menuImage/image90.png",
-      "hotLevel": 3,
-      "isBest": false
-    }
-  ],
   "SANDWICH": [
     {
-      "name": "Cheese Sandwich",
+      "name": "Ham & Cheese",
       "price": 10000,
       "image": "/images/menuImage/image94.png",
       "isBest": true
     },
     {
-      "name": "Shrimp Pasta Sandwich",
+      "name": "Abocado",
       "price": 15000,
       "image": "/images/menuImage/image95.png",
       "hotLevel": 2,
       "isBest": false
     },
     {
-      "name": "Spicy Shrimp Sandwich",
+      "name": "Spicy Shrimp",
       "price": 20000,
       "image": "/images/menuImage/image96.png",
       "hotLevel": 1,
       "isBest": false
     },
     {
-      "name": "Signature Sandwich",
+      "name": "Signature",
       "price": 17000,
       "image": "/images/menuImage/image94.png",
 
       "isBest": true
     },
     {
-      "name": "Chicken Sandwich",
+      "name": "Chicken",
       "price": 15000,
       "image": "/images/menuImage/image95.png",
       "isBest": false
     },
     {
-      "name": "Beef Sandwich",
+      "name": "Beef",
       "price": 15000,
       "image": "/images/menuImage/image96.png",
       "hotLevel": 1,
