@@ -30,7 +30,7 @@ export default function Cart() {
                 <div
                     className='absolute -right-4 bottom-[34px]
                     transform translate-y-1/2 
-                     w-[75px] h-[75px] z-99 rounded-full 
+                    w-[75px] h-[75px] z-99 rounded-full 
                         flex justify-center items-center p-2 text-5xl bg-primary text-white'>
                     <PiShoppingCartSimpleFill />
                 </div>

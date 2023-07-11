@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Error from './pages/Error';
 import Home from './pages/Home';
 import Order from './pages/Order';
+import Receipt from './pages/Receipt';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, path: '/', element: <Home /> },
       { path: 'order/:tableNumber', element: <Order /> },
+      { path: 'order/:tableNumber/receipt', element: <Receipt /> }
 
     ]
   }

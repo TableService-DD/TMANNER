@@ -5,11 +5,12 @@ import { CartContextProvider } from './Context/context';
 
 function App() {
   return (
-    <div className="App">
-      <CartContextProvider>
+    <CartContextProvider>
+      <div className="App">
         <Outlet />
-      </CartContextProvider>
-    </div>
+      </div>
+    </CartContextProvider>
+
   );
 }
 
