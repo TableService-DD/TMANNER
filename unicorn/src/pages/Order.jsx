@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Banner from '../components/Banner';
 import TabSection from '../components/TabSection';
@@ -9,6 +9,7 @@ export default function Order() {
 
     const { tableNumber } = useParams();
     const [tabs, setTabs] = useState(["SET", "MAIN", "SIDE", "DRINK"]);
+    // const [tabs, setTabs] = useState(["BURGER", "BURGER2", "SANDWICH", "DRINK"]);
     const [active, setActive] = useState(0);
     const [menu, setMenu] = useState(null);
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function Order() {
                 menu &&
                 Object.keys(menu).map((menuTitle, index) => {
                     return (
-                        <MenuSection key={index} menuTitle={menuTitle} menuItems={menu[menuTitle]} />
+                        <MenuSection key={index} menuTitle={menuTitle} active={active} menuItems={menu[menuTitle]} index={index} />
                     )
                 }
                 )
