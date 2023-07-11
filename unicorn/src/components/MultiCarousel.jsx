@@ -1,24 +1,18 @@
 import React from 'react'
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import Carousel from "react-multi-carousel";
+// import "react-multi-carousel/lib/styles.css";
+import Slider from "react-slick"
 
 export default function MultiCarousel({ children }) {
-
-    const responsive = {
-        mobile: {
-            breakpoint: { max: 480, min: 0 },
-            items: 2,
-            slidesToSlide: 1 // optional, default to 1.
-        }
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3
     };
     return (
-        <Carousel
-            draggable={true}
-            showDots={false}
-            responsive={responsive}
-            autoPlay={true}
-            removeArrowOnDeviceType={["mobile"]}
-        >
+        <Slider {...settings}>
             {children}
-        </Carousel>)
+        </Slider>)
 }

@@ -7,31 +7,32 @@ export default function Cart() {
     const { cart, setCart } = useCartContext();
     return (
         <section
-            className='z-0 fixed flex bottom-[25px] w-[85%] h-[100px] right-10
+            className='z-0 fixed flex items-center bottom-[60px] w-[80%] h-[65px] right-10
         '>
-            <div className='relative flex items-center p-1 w-full'>
-                <div className="grid grid-cols-4 gap-2 w-full h-[67px] rounded-lg bg-gradient-to-r from-orange-200 to-primary pr-16 overflow-y-auto whitespace-nowrap">
-                    {/* <MultiCarousel> */}
+            <div className='relative flex justify-start items-center px-2 w-full rounded-xl h-full bg-gradient-to-r from-orange-200 to-primary'>
+                <div className="grid grid-cols-4 items-center x-auto overflow-scroll max-w-[300px] gap-2 w-4/5 h-[55px] ">
                     {cart.map((item) => {
                         return (
                             <div key={item.name}
-                                className='w-[58px] h-[58px] bg-white rounded-xl'>
+                                className='relative w-[55px] h-full bg-white rounded-xl'>
                                 <img
-                                    className='w-[58px] h-[58px] rounded-xl object-cover'
+                                    className='w-full h-[55px] rounded-xl object-contain'
                                     src={item.image}
                                     alt={item.name} />
+                                <p className='absolute flex justify-center items-center top-0 right-0 bg-primary text-[12px] text-center text-white font-bold w-[16px] h-[16px] rounded-full'>
+                                    <span>{item.quantity}</span>
+                                </p>
                             </div>
                         )
                     }
                     )}
-                    {/* </MultiCarousel> */}
                 </div>
                 <div
-                    className='absolute -right-5 bottom-12
+                    className='absolute -right-4 bottom-[34px]
                     transform translate-y-1/2 
-                     w-[85px] h-[85px] z-99 rounded-full 
+                     w-[75px] h-[75px] z-99 rounded-full 
                         flex justify-center items-center p-2 text-5xl bg-primary text-white'>
-                    <PiShoppingCartSimpleFill className='' />
+                    <PiShoppingCartSimpleFill />
                 </div>
             </div>
         </section>

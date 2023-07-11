@@ -15,6 +15,7 @@ export default function Order() {
     const [active, setActive] = useState(0);
     const [menu, setMenu] = useState(null);
     const { cart, setCart } = useCartContext();
+
     useEffect(() => {
         async function fetchData() {
             const menuData = await fetchMenuData();
@@ -39,7 +40,12 @@ export default function Order() {
                 )
             }
             {cart.length && <Cart />}
-
+            {
+                cart.length &&
+                <button className='fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full'>
+                    주문 준비
+                </button>
+            }
         </section>
     )
 }
