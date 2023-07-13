@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { UserLogin } from '../api/data';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Login() {
     const [user_id, setUserId] = useState('');
     const [user_pw, setPassword] = useState('');
     const handleSubmit = e => {
         e.preventDefault();
-        // UserLogin({ user_id, user_pw });
+        UserLogin({ user_id, user_pw });
         console.log('user_id:', user_id, 'user_pw:', user_pw);
     };
 
+    const handleCheck = () => {
+        axios.get('http://hoshi-kirby.xyz/api/v1/user/check')
+            .then((res) => {
+                console.log(res);
+            })
+    };
     return (
         <div className="min-h-screen flex flex-col items-start justify-center bg-gray-50 py-12 px-4">
+            <button onClick={() => handleCheck()} className='p-4 bg-black text-white'>Check</button>
             <div className="max-w-md w-full space-y-8">
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">로그인</h2>
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>

@@ -25,7 +25,12 @@ const SignUp = () => {
                 user_email,
                 user_phone,
             }
-            console.log(response);
+            axios.post('http://hoshi-kirby.xyz/api/v1/user/register',
+                response)
+                .then((res) => {
+                    console.log(res);
+                    alert('회원가입이 완료되었습니다.');
+                })
         } catch (error) {
             console.error(error);
         }
