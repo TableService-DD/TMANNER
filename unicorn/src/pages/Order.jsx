@@ -8,7 +8,6 @@ import Cart from '../components/Cart';
 import { CartContextProvider, useCartContext } from '../Context/context';
 
 export default function Order() {
-
     const { tableNumber } = useParams();
     const [tabs, setTabs] = useState(["SET", "MAIN", "SIDE", "DRINK"]);
     // const [tabs, setTabs] = useState(["BURGER", "BURGER2", "SANDWICH", "DRINK"]);

@@ -7,6 +7,7 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import Order from './pages/Order';
 import Receipt from './pages/Receipt';
+import Option from './pages/Option';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, path: '/', element: <Home /> },
       { path: 'order/:tableNumber', element: <Order /> },
+      { path: 'order/:tableNumber/:type/:foodId', element: <Option/> },
       { path: 'order/:tableNumber/receipt', element: <Receipt /> }
 
     ]

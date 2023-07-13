@@ -4,21 +4,30 @@
       "name": "Cheese",
       "price": 10000,
       "image": "/images/menuImage/image88.png",
-      "isBest": true
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Cheese 버거",
+      "isBest": true,
+      "foodId": 11
     },
 
     {
       "name": "Double Cheese",
       "price": 15000,
       "image": "/images/menuImage/image93.png",
-      "isBest": true
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Double Cheese 버거",
+      "isBest": true,
+      "foodId":12
     },
     {
       "name": "Spicy Shrimp",
       "price": 20000,
       "image": "/images/menuImage/image90.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Spicy Shrimp 버거",
       "hotLevel": 3,
-      "isBest": false
+      "isBest": false,
+      "foodId":13
     }
   ],
   "SANDWICH": [
@@ -26,41 +35,59 @@
       "name": "Ham & Cheese",
       "price": 10000,
       "image": "/images/menuImage/image94.png",
-      "isBest": true
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴!",
+      "isBest": true,
+      "foodId":21
     },
     {
       "name": "Abocado",
       "price": 15000,
       "image": "/images/menuImage/image95.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴!",
       "hotLevel": 2,
-      "isBest": false
+      "isBest": false,
+      "foodId":22
     },
     {
       "name": "Spicy Shrimp",
       "price": 20000,
       "image": "/images/menuImage/image96.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴!",
       "hotLevel": 1,
-      "isBest": false
+      "isBest": false,
+      "foodId":23
     },
     {
       "name": "Signature",
       "price": 17000,
       "image": "/images/menuImage/image94.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴!",
 
-      "isBest": true
+      "isBest": true,
+      "foodId":24
     },
     {
       "name": "Chicken",
       "price": 15000,
       "image": "/images/menuImage/image95.png",
-      "isBest": false
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴!",
+      "isBest": false,
+      "foodId":25
     },
     {
       "name": "Beef",
       "price": 15000,
       "image": "/images/menuImage/image96.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴!",
       "hotLevel": 1,
-      "isBest": false
+      "isBest": false,
+      "foodId":26
     }
   ]
 }

@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { useCartContext } from '../Context/context';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 export default function MenuSection({ menuTitle, menuItems, index, active }) {
     const { cart, setCart } = useCartContext();
+    const navigate = useNavigate();
+    
     const addToCart = (item) => {
         const itemExists = cart.find((cartItem) => cartItem.name === item.name);
         if (itemExists) {
@@ -19,6 +22,7 @@ export default function MenuSection({ menuTitle, menuItems, index, active }) {
             setCart([...cart, { ...item, quantity: 1 }]);
         }
     };
+        console.log(menuTitle, menuItems)
     return (
         <section id={menuTitle} className='flex flex-col bg-menuSection px-5'>
             <h1
@@ -29,6 +33,7 @@ export default function MenuSection({ menuTitle, menuItems, index, active }) {
                 className='grid grid-cols-3 relative gap-2 '>
                 {menuItems.map((item, index) => {
                     const hotImages = [];
+                    //맵기
                     if (item.hotLevel) {
                         for (let i = 0; i < item.hotLevel; i++) {
                             hotImages.push(<img
@@ -36,11 +41,14 @@ export default function MenuSection({ menuTitle, menuItems, index, active }) {
                                 key={i} src="/images/menuImage/hot.png" alt="Hot" />);
                         }
                     }
+                    //menuItems.map() 함수 내부에서 각 아이템 반복 반환
                     return (<div key={item.name} className='relative'>
                         <img
                             className='w-[110px] h-[110px] rounded-xl overflow-hidden bg-white p-4 '
                             src={item.image}
-                            alt={item.name} />
+                            alt={item.name} 
+                            onClick={()=> navigate(`${menuTitle}/${item.foodId}`)}
+                            />
                         <p
                             className='text-menuTitle relative font-bold'>
                             {item.name}
