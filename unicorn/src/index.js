@@ -20,6 +20,7 @@ const router = createBrowserRouter([
       { path: 'order/:tableNumber/:type/:foodId', element: <Option/> },
       { path: 'order/:tableNumber/receipt', element: <Receipt /> }
 
+      
     ]
   }
 ]);

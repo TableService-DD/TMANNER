@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri';
+import { useState } from 'react';
 
+function MenuDescription({intro, price, name, addOption}) {
 
-function MenuDescription({intro, price, name}) {
-
+    //MenuTitle
     const TitleBox = styled.div`
         display: flex;
         width: 368px;
         height: 72px;
-        justify-content: space-between; // 좌우로 분산 배치
+        justify-content: space-between;
         align-items: center;
         flex-shrink: 0;
     `
@@ -25,7 +27,7 @@ function MenuDescription({intro, price, name}) {
 
     const Price = styled.span`
         color: #000;
-        text-align: right; // 오른쪽 정렬
+        text-align: right;
         font-family: Inter;
         font-size: 16px;
         font-style: normal;
@@ -34,6 +36,7 @@ function MenuDescription({intro, price, name}) {
         margin-right: 20px; 
     `
 
+    //Menu 소개
     const MenuIntroBox = styled.div`
         width: 344px;
         height: 84px;
@@ -65,95 +68,98 @@ function MenuDescription({intro, price, name}) {
         line-height: normal;
     `
 
-    const AddOptionTitle = styled.div`
-        width: 390px;
-        margin-top:23px;
-        margin-left: 20px;
-        color: #000;
-        font-family: Inter;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        text-align: left;
-    `
-    const AddOptionBox = styled.div` 
-        display: flex;
-        width: 390px;
-        padding-left: 30px;
-        padding-top: 10px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+    //옵션 추가
+    const OptionBox = styled.div`
+      display: inline-flex;
+      padding : 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
     `
 
-    const OptionInfo = styled.div`
-        display: flex;
-        align-items: flex-end;
-        gap: 20px;
-
+    const OptionTitle = styled.p`
+      color: #000;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
     `
 
-    const OptionTextBox = styled.span`
-        display: flex;
-        height: 26px;
-        align-items: center;
-        gap: 81px;
-    `
+    const OptionList = styled.ul`
+      display: flex;
+      width: 330px;
+      height: auto; // 높이를 auto로 변경
+      flex-direction: column; // 세로 방향으로 배열
+      align-items: flex-start; // 아이템을 왼쪽으로 정렬
+      flex-shrink: 0;
+    `;
+
+    const OptionItem = styled.li`
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    `;
+
 
     const OptionName = styled.span`
-        color: #000;
-        text-align: center;
-        font-family: Inter;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+      display: flex;
+      width: 150px;
+      justify-content: flex-start; // Add this line
+      flex-shrink: 0;
+      align-self: stretch;
+      color: #000;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     `
 
     const OptionPrice = styled.span`
-        color: #000;
-        text-align: center;
-        font-family: Inter;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+      display: flex;
+      width: 82px;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+      align-self: stretch;
+
+      color: #000;
+      text-align: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
     `
 
-    return (
+      return (
         <>
-            <TitleBox>
-                <Title>{name}</Title>
-                <Price>{price}원</Price>
-            </TitleBox>
+          <TitleBox>
+            <Title>{name}</Title>
+            <Price>{price}원</Price>
+          </TitleBox>
+    
+          <MenuIntroBox>
+            <IntroTitle>Menu Intro</IntroTitle>
+            <IntroContent>{intro}</IntroContent>
+          </MenuIntroBox>
 
-            <MenuIntroBox>
-                <IntroTitle>Menu Intro</IntroTitle>
-                <IntroContent>{intro}</IntroContent>
-            </MenuIntroBox>
 
-            <AddOptionTitle>추가 옵션</AddOptionTitle>
-            <AddOptionBox>
+          <OptionBox>
+            <OptionTitle>추가 옵션</OptionTitle>
+            <OptionList>
+            {addOption.map((option, index) => (
+              <OptionItem key={index}>
+                <OptionName>{option.name}</OptionName>
+                <OptionPrice>{option.price}</OptionPrice>
+              </OptionItem>
+            ))}
 
-                <OptionInfo>
-                    <OptionTextBox><OptionName>새우 추가</OptionName><OptionPrice>2,000원</OptionPrice>
-                    </OptionTextBox>
-                </OptionInfo>
-
-                <OptionInfo>
-                    <OptionTextBox><OptionName>새우 추가</OptionName><OptionPrice>2,000원</OptionPrice>
-                    </OptionTextBox>
-                </OptionInfo>
-
-                <OptionInfo>
-                    <OptionTextBox><OptionName>새우 추가</OptionName><OptionPrice>2,000원</OptionPrice>
-                    </OptionTextBox>
-                </OptionInfo>         
-                
-            </AddOptionBox>
+            </OptionList>
+          </OptionBox>
         </>
-    );
-}
-
+      );
+    }
+    
 export default MenuDescription;

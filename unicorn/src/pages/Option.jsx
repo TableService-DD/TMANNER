@@ -20,20 +20,23 @@ function Option(props) {
             setMenu(menuData); 
         }
         fetchData();
+
     }, []);
 
     
     const menuItem = menu[type] && menu[type].find(item => item.foodId.toString() === foodId);
 
+    //담기를 눌렀을 때
+    //[...cart]
     return (
-        <div>
+        <div style={{ width: 390, height: 844 }}>
             <Header title={'옵션'}/>
             {
                 menuItem &&
                 <div>
                     <FoodBanner src={menuItem.bannerImage} alt={menuItem.name}/>
                     <MenuDescription intro = {menuItem.menu_intro} 
-                    price ={menuItem.price} name={menuItem.name}>
+                    price ={menuItem.price} name={menuItem.name} addOption={menuItem.addOption}>
                     </MenuDescription>
                 </div>
             }

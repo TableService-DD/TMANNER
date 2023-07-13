@@ -8,21 +8,34 @@ export default function MenuSection({ menuTitle, menuItems, index, active }) {
     const navigate = useNavigate();
     
     const addToCart = (item) => {
-        const itemExists = cart.find((cartItem) => cartItem.name === item.name);
+        const options = item.addOption ? item.addOption.map(option => ({...option, quantity: 0})) : [];
+        const itemExists = cart.find((cartItem) => {
+            // cartItem에 담긴 옵션과 기존 옵션, name이 같을 때, 즉 중복 요소일 떄
+            if (cartItem.options && options) {
+                return cartItem.name === item.name && JSON.stringify(cartItem.options) === JSON.stringify(options);
+            }
+            else {
+                return false;
+            }
+        });
+
+        //이름 중복 여부 
         if (itemExists) {
-            // 중복 항목이 있는 경우 수량 증가
-            const updatedCart = cart.map((cartItem) =>
-                cartItem.name === item.name
-                    ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            const updatedCart = cart.map((cartItem) => 
+                cartItem.name === item.name && JSON.stringify(cartItem.options) === JSON.stringify(options)
+                    ? { ...cartItem, options: cartItem.options, quantity: cartItem.quantity + 1 }
                     : cartItem
             );
+
             setCart(updatedCart);
         } else {
             // 중복 항목이 없는 경우 cart 배열에 항목 추가
-            setCart([...cart, { ...item, quantity: 1 }]);
+            setCart([...cart, { ...item, options, quantity: 1 }]);
         }
     };
-        console.log(menuTitle, menuItems)
+        console.log(cart)
+        // console.log(menuTitle, menuItems)
+
     return (
         <section id={menuTitle} className='flex flex-col bg-menuSection px-5'>
             <h1

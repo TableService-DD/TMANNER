@@ -11,6 +11,7 @@ function FoodBanner({ src, alt }) {
   return (
     <div>
       <BannerImg src={src} alt={alt} />
+      
     </div>
   );
 }
