@@ -9,3 +9,16 @@ export async function fetchMenuData() {
         return null;
     }
 }
+
+
+export async function UserLogin({ user_id, user_pw }) {
+    try {
+        const response = await axios.post("/api/login", {
+            user_id,
+            user_pw
+        });
+        return response.data;
+    } catch (error) {
+        console.error("로그인 실패:", error);
+    }
+}

@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Order from './pages/Order';
 import Receipt from './pages/Receipt';
 import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,10 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, path: '/', element: <Login /> },
+      { path: 'signup', element: <SignUp /> },
       { path: 'order/:tableNumber', element: <Order /> },
       { path: 'order/:tableNumber/receipt', element: <Receipt /> }
+
 
     ]
   }

@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { UserLogin } from '../api/data';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     const [user_id, setUserId] = useState('');
     const [user_pw, setPassword] = useState('');
     const handleSubmit = e => {
         e.preventDefault();
-
+        // UserLogin({ user_id, user_pw });
         console.log('user_id:', user_id, 'user_pw:', user_pw);
     };
 
     return (
-        <div className="min-h-screen flex items-start mt-24 justify-center bg-gray-50 py-12 px-4">
+        <div className="min-h-screen flex flex-col items-start justify-center bg-gray-50 py-12 px-4">
             <div className="max-w-md w-full space-y-8">
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">로그인</h2>
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -53,8 +55,19 @@ export default function Login() {
                         </div>
                     </div>
                     <button className='py-2 bg-primary text-white rounded-md w-full font-bold'>LOG IN</button>
+
                 </form>
+                <div className="flex items-center justify-between">
+                    <span className="text-gray-600 text-sm">계정이 없으신가요?</span>
+                    <Link
+                        to="/signup"
+                        className="text-primary text-sm font-semibold hover:underline">
+                        회원가입
+                    </Link>
+                </div>
             </div>
+
         </div>
+
     )
 }
