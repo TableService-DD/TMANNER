@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { UserLogin } from '../api/data';
+import { CheckUser, UserLogin } from '../api/data';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,10 +13,7 @@ export default function Login() {
     };
 
     const handleCheck = () => {
-        axios.get('http://hoshi-kirby.xyz/api/v1/user/check')
-            .then((res) => {
-                console.log(res);
-            })
+        CheckUser();
     };
     return (
         <div className="min-h-screen flex flex-col items-start justify-center bg-gray-50 py-12 px-4">
