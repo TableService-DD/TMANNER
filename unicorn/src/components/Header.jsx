@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MdArrowBackIosNew } from "react-icons/md";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 
 const StyledHeader = styled.header`
@@ -13,7 +14,6 @@ const StyledHeader = styled.header`
   color: black;
   padding: 0 30px;
 `;
-
 
 const BackButton = styled.button`
   display: flex;
@@ -30,10 +30,16 @@ const Text = styled.h1`
   margin: 0;
 `;
 
-function Header({ title }) {
+function Header({ title, tableNumber }) {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const goBack = () => {
+    navigate(`/order/${tableNumber}`); // Navigate back to Order/:tableNumber
+  };
+
   return (
     <StyledHeader>
-      <BackButton>
+      <BackButton onClick={goBack}>
         <MdArrowBackIosNew />
       </BackButton>
       <Text>{title}</Text>

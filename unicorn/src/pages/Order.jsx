@@ -22,10 +22,12 @@ export default function Order() {
         }
         fetchData();
     }, []);
+    
     useEffect(() => {
         console.log(cart);
     }, [cart])
 
+    console.log(tableNumber)
     
     return (
         <section className='flex flex-col'>
@@ -35,7 +37,7 @@ export default function Order() {
                 menu &&
                 Object.keys(menu).map((menuTitle, index) => {
                     return (
-                        <MenuSection key={index} menuTitle={menuTitle} active={active} menuItems={menu[menuTitle]} index={index} />
+                        <MenuSection key={index} menuTitle={menuTitle} active={active} menuItems={menu[menuTitle]} index={index} tableNumber={tableNumber} />
                     )
                 }
                 )

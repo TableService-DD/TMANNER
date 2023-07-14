@@ -11,7 +11,11 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리", "price": 3000},
-        {"name": "머스타드", "price": 3000}
+        {"name": "머스타드", "price": 3000} 
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     },
 
@@ -26,6 +30,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     },
     {
@@ -40,6 +48,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     }
   ],
@@ -55,6 +67,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     },
     {
@@ -69,6 +85,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     },
     {
@@ -83,6 +103,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     },
     {
@@ -97,6 +121,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     },
     {
@@ -110,6 +138,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     },
     {
@@ -124,6 +156,10 @@
       "addOption":[
         {"name": "새우", "price": 2000},
         {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
       ]
     }
   ]
