@@ -248,13 +248,13 @@ function AddOption({addOption, name, price, image}) {
             <OptionList>
             {addOption.map((option, index) => (
                 <OptionItem key={index}>
-                <OptionName>{option.name}</OptionName>
-                <OptionPrice>{option.price}원</OptionPrice>
-                <OptionQuantityBox>
-                    <OptionQuantityBtn onClick={() => decreaseOQuantity(index)}>-</OptionQuantityBtn>
-                    <OptionQuantity>{oquantities[index]}</OptionQuantity>
-                    <OptionQuantityBtn onClick={() => increaseOQuantity(index)}>+</OptionQuantityBtn>
-                </OptionQuantityBox>
+                  <OptionName>{option.name}</OptionName>
+                  <OptionPrice>{option.price}원</OptionPrice>
+                  <OptionQuantityBox>
+                      <OptionQuantityBtn onClick={() => decreaseOQuantity(index)}>-</OptionQuantityBtn>
+                      <OptionQuantity>{oquantities[index]}</OptionQuantity>
+                      <OptionQuantityBtn onClick={() => increaseOQuantity(index)}>+</OptionQuantityBtn>
+                  </OptionQuantityBox>
                 </OptionItem>
             ))}
             </OptionList>

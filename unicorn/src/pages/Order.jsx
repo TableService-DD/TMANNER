@@ -26,8 +26,6 @@ export default function Order() {
     useEffect(() => {
         console.log(cart);
     }, [cart])
-
-    console.log(tableNumber)
     
     return (
         <section className='flex flex-col'>
