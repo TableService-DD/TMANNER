@@ -8,7 +8,6 @@ import Cart from '../components/Cart';
 import { CartContextProvider, useCartContext } from '../Context/context';
 
 export default function Order() {
-
     const { tableNumber } = useParams();
     const [tabs, setTabs] = useState(["SET", "MAIN", "SIDE", "DRINK"]);
     // const [tabs, setTabs] = useState(["BURGER", "BURGER2", "SANDWICH", "DRINK"]);
@@ -23,9 +22,11 @@ export default function Order() {
         }
         fetchData();
     }, []);
+    
     useEffect(() => {
         console.log(cart);
     }, [cart])
+    
     return (
         <section className='flex flex-col'>
             <Banner tableNumber={tableNumber} />
@@ -34,7 +35,7 @@ export default function Order() {
                 menu &&
                 Object.keys(menu).map((menuTitle, index) => {
                     return (
-                        <MenuSection key={index} menuTitle={menuTitle} active={active} menuItems={menu[menuTitle]} index={index} />
+                        <MenuSection key={index} menuTitle={menuTitle} active={active} menuItems={menu[menuTitle]} index={index} tableNumber={tableNumber} />
                     )
                 }
                 )
