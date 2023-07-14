@@ -15,7 +15,7 @@ export default function Cart() {
                         return (
                             <div key={item.name}
                                 className='relative w-[55px] h-full bg-white rounded-xl'>
-                                <img
+                                <img  
                                     className='w-full h-[55px] rounded-xl object-contain'
                                     src={item.image}
                                     alt={item.name} />

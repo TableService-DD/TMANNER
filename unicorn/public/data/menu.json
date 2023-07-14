@@ -4,21 +4,55 @@
       "name": "Cheese",
       "price": 10000,
       "image": "/images/menuImage/image88.png",
-      "isBest": true
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Cheese 버거",
+      "isBest": true,
+      "foodId": 11,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리", "price": 3000},
+        {"name": "머스타드", "price": 3000} 
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     },
 
     {
       "name": "Double Cheese",
       "price": 15000,
       "image": "/images/menuImage/image93.png",
-      "isBest": true
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Double Cheese 버거",
+      "isBest": true,
+      "foodId":12,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     },
     {
       "name": "Spicy Shrimp",
       "price": 20000,
       "image": "/images/menuImage/image90.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Spicy Shrimp 버거",
       "hotLevel": 3,
-      "isBest": false
+      "isBest": false,
+      "foodId":13,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     }
   ],
   "SANDWICH": [
@@ -26,41 +60,107 @@
       "name": "Ham & Cheese",
       "price": 10000,
       "image": "/images/menuImage/image94.png",
-      "isBest": true
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Ham & Cheese",
+      "isBest": true,
+      "foodId":21,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     },
     {
       "name": "Abocado",
       "price": 15000,
       "image": "/images/menuImage/image95.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Abocado",
       "hotLevel": 2,
-      "isBest": false
+      "isBest": false,
+      "foodId":22,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     },
     {
       "name": "Spicy Shrimp",
       "price": 20000,
       "image": "/images/menuImage/image96.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Spicy Shrimp",
       "hotLevel": 1,
-      "isBest": false
+      "isBest": false,
+      "foodId":23,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     },
     {
       "name": "Signature",
       "price": 17000,
       "image": "/images/menuImage/image94.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴!",
 
-      "isBest": true
+      "isBest": true,
+      "foodId":24,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     },
     {
       "name": "Chicken",
       "price": 15000,
       "image": "/images/menuImage/image95.png",
-      "isBest": false
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Chicken",
+      "isBest": false,
+      "foodId":25,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     },
     {
       "name": "Beef",
       "price": 15000,
       "image": "/images/menuImage/image96.png",
+      "bannerImage":"/images/bannerImage/basic.png",
+      "menu_intro":"SANDZ의 대표 메뉴! Beef",
       "hotLevel": 1,
-      "isBest": false
+      "isBest": false,
+      "foodId":26,
+      "addOption":[
+        {"name": "새우", "price": 2000},
+        {"name": "칠리소스", "price": 3000}
+      ],
+      "origin": [
+        {"name": "새우", "country": "베트남산"},
+        {"name": "홍합", "country": "국내산"}
+      ]
     }
   ]
 }

@@ -7,8 +7,12 @@ import Error from './pages/Error';
 import Home from './pages/Home';
 import Order from './pages/Order';
 import Receipt from './pages/Receipt';
+
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+
+import Option from './pages/Option';
+
 
 const router = createBrowserRouter([
   {
@@ -19,9 +23,8 @@ const router = createBrowserRouter([
       { index: true, path: '/', element: <Login /> },
       { path: 'signup', element: <SignUp /> },
       { path: 'order/:tableNumber', element: <Order /> },
+      { path: 'order/:tableNumber/:type/:foodId', element: <Option/> },
       { path: 'order/:tableNumber/receipt', element: <Receipt /> }
-
-
     ]
   }
 ]);
