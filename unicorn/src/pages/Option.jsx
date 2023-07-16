@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchMenuData } from '../api/data';
 import { useParams } from 'react-router-dom';
-
 import Header from '../components/Header';
 import FoodBanner from '../components/FoodBanner';
 import MenuDescription from '../components/MenuDescription';

@@ -5,7 +5,7 @@ import TabSection from '../components/TabSection';
 import MenuSection from '../components/MenuSection';
 import { fetchMenuData } from '../api/data';
 import Cart from '../components/Cart';
-import { CartContextProvider, useCartContext } from '../Context/context';
+import { useCartContext } from '../Context/context';
 
 export default function Order() {
     const { tableNumber } = useParams();
@@ -21,12 +21,12 @@ export default function Order() {
             setMenu(menuData);
         }
         fetchData();
-    }, []);
-    
+    }, [menu]);
+
     useEffect(() => {
         console.log(cart);
     }, [cart])
-    
+
     return (
         <section className='flex flex-col'>
             <Banner tableNumber={tableNumber} />
@@ -40,15 +40,17 @@ export default function Order() {
                 }
                 )
             }
-            {cart.length && <Cart />}
-            {
-                cart.length &&
-                <button
-                    onClick={() => navigate(`receipt`)}
-                    className='fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full'>
-                    주문 준비
-                </button>
-            }
+            {cart.length > 0 && (
+                <>
+                    <Cart />
+                    <button
+                        onClick={() => navigate("receipt")}
+                        className="fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full"
+                    >
+                        주문 준비
+                    </button>
+                </>
+            )}
         </section>
     )
 }

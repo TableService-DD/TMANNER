@@ -13,17 +13,20 @@ export async function fetchMenuData() {
 export async function UserLogin({ user_id, user_pw }) {
     try {
         const response = await axios.get(`http://hoshi-kirby.xyz/api/v1/user/login`, {
-
             params: {
                 id: user_id,
                 pw: user_pw
             }
         })
-        console.log(response);
-        localStorage.setItem('token', response.data.access_token);
-        return response.data;
+        if (response.data.access_token) {
+            localStorage.setItem('token', response.data.access_token);
+            return true;
+        } else if (response.data.message) {
+            return false;
+        }
     } catch (error) {
         console.error("로그인 실패:", error);
+        return false;
     }
 }
 
@@ -37,8 +40,10 @@ export async function CheckUser() {
         })
         console.log(response);
         console.log("Check 성공");
-        return response.data;
+        return true;
     } catch (error) {
         console.error("유저 체크 실패:", error);
+        return false;
     }
 }
+

@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 export default function MenuSection({ menuTitle, menuItems, index, active, tableNumber }) {
     const { cart, setCart } = useCartContext();
     const navigate = useNavigate();
-    
+
     const addToCart = (item) => {
-        const options = item.addOption ? item.addOption.map(option => ({...option, quantity: 0})) : [];
+        const options = item.addOption ? item.addOption.map(option => ({ ...option, quantity: 0 })) : [];
         const itemExists = cart.find((cartItem) => {
             if (cartItem.name === item.name && JSON.stringify(cartItem.selectedOptions) === JSON.stringify(options)) {
                 return true;
