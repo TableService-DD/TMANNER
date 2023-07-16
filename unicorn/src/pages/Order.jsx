@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Banner from '../components/Banner';
 import TabSection from '../components/TabSection';
 import MenuSection from '../components/MenuSection';
-import { fetchMenuData } from '../api/data';
+import { CartAdd, CartList, OrderList, UpdateUser, fetchMenuData, getUserList } from '../api/data';
 import Cart from '../components/Cart';
 import { useCartContext } from '../Context/context';
 
@@ -23,12 +23,38 @@ export default function Order() {
         fetchData();
     }, [menu]);
 
+    async function CartAddTest() {
+        await OrderList();
+    }
+
+
+    async function CartListData() {
+        const cartData = await CartList();
+    }
+
+    async function handleUserList() {
+        const userList = await getUserList();
+    }
+
+    async function handleUserUpdate(email) {
+        const userList = await UpdateUser(email);
+    }
+
     useEffect(() => {
         console.log(cart);
     }, [cart])
 
+    const HandleCart = () => {
+        console.log("cart", cart);
+        navigate('/receipt');
+    }
+
     return (
         <section className='flex flex-col'>
+            <button onClick={(e) => handleUserUpdate("Kevin@naver.com")} className='p-4 bg-purple-300'>UPDATEUSER</button>
+            <button onClick={handleUserList} className='p-4 bg-green-400 text-white'>LIST USER</button>
+            <button onClick={CartAddTest} className='p-4 bg-primary text-white '>add</button>
+            <button onClick={CartListData} className='p-4 bg-black text-white'>list</button>
             <Banner tableNumber={tableNumber} />
             <TabSection tabs={tabs} active={active} setActive={setActive} />
             {
@@ -44,7 +70,7 @@ export default function Order() {
                 <>
                     <Cart />
                     <button
-                        onClick={() => navigate("receipt")}
+                        onClick={HandleCart}
                         className="fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full"
                     >
                         주문 준비

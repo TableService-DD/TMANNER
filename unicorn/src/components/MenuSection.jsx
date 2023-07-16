@@ -1,6 +1,7 @@
 import { useCartContext } from '../Context/context';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import { CartAdd } from '../api/data';
 
 export default function MenuSection({ menuTitle, menuItems, index, active, tableNumber }) {
     const { cart, setCart } = useCartContext();
@@ -39,6 +40,8 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
             setCart([...cart, newItem]);
         }
     };
+
+
 
     return (
         <section id={menuTitle} className='flex flex-col bg-menuSection px-5'>

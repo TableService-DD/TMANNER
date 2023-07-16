@@ -1,5 +1,7 @@
 import axios from "axios";
 
+export const BASE_URL = 'http://hoshi-kirby.xyz/api/v1';
+
 export async function fetchMenuData() {
     try {
         const response = await axios.get("/data/menu.json");
@@ -9,6 +11,19 @@ export async function fetchMenuData() {
         return null;
     }
 }
+export async function getUserList() {
+    try {
+        const response = await axios.get(`http://hoshi-kirby.xyz/api/v1/user/list`, {
+        })
+        console.log(response);
+        return true;
+    } catch (error) {
+        console.error("유저 받아오기 실패:", error);
+        return false;
+    }
+}
+
+
 
 export async function UserLogin({ user_id, user_pw }) {
     try {
@@ -18,8 +33,10 @@ export async function UserLogin({ user_id, user_pw }) {
                 pw: user_pw
             }
         })
+        console.log(response);
         if (response.data.access_token) {
             localStorage.setItem('token', response.data.access_token);
+
             return true;
         } else if (response.data.message) {
             return false;
@@ -29,7 +46,6 @@ export async function UserLogin({ user_id, user_pw }) {
         return false;
     }
 }
-
 
 export async function CheckUser() {
     try {
@@ -46,4 +62,74 @@ export async function CheckUser() {
         return false;
     }
 }
+export async function CartList() {
+    try {
+        const response = await axios.get(`${BASE_URL}/cart/list`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        console.log(response);
+        return response.data;
+    } catch (error) {
+        console.error("데이터 가져오기 실패:", error);
+        return false;
+    }
+}
 
+
+
+export async function CartAdd() {
+    try {
+        const response = await axios.post(`${BASE_URL}/cart/add`, {
+            "user_id": "Levin",
+            "product_id": "cheei",
+            "product_price": "string",
+            "product_count": "string",
+        }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        console.log(response);
+        console.log("CartAdd 성공");
+        return true;
+    } catch (error) {
+        console.error("CartAdd 실패:", error);
+        return false;
+    }
+}
+
+export async function OrderList() {
+    try {
+        const response = await axios.get(`${BASE_URL}/order/list/all`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        console.log(response);
+        return response.data;
+    } catch (error) {
+        console.error("데이터 가져오기 실패:", error);
+        return false;
+    }
+}
+
+export async function UpdateUser(email) {
+    try {
+        const response = await axios.put(`${BASE_URL}/user/update`, {
+            "user_id": "string",
+            "user_pw": "string",
+            "user_name": "string",
+            "user_phone": "string",
+            "user_email": email,
+            "is_valid": true,
+        });
+        console.log(response);
+        console.log("UpdateUser 성공");
+        return true;
+    } catch (error) {
+        console.error("UpdateUser 실패:", error);
+        return false;
+    }
+}
