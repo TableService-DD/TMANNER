@@ -24,7 +24,6 @@ export async function getUserList() {
 }
 
 
-
 export async function UserLogin({ user_id, user_pw }) {
     try {
         const response = await axios.get(`http://hoshi-kirby.xyz/api/v1/user/login`, {
