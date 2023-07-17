@@ -34,7 +34,7 @@ export async function UserLogin({ user_id, user_pw }) {
         })
         console.log(response);
         if (response.data.access_token) {
-            localStorage.setItem('token', response.data.access_token);
+            sessionStorage.setItem('token', response.data.access_token);
 
             return true;
         } else if (response.data.message) {
@@ -50,7 +50,7 @@ export async function CheckUser() {
     try {
         const response = await axios.get(`http://hoshi-kirby.xyz/api/v1/user/check`, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
             },
         })
         console.log(response);
@@ -65,7 +65,7 @@ export async function CartList() {
     try {
         const response = await axios.get(`${BASE_URL}/cart/list`, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
             }
         });
         console.log(response);
@@ -87,7 +87,7 @@ export async function CartAdd(item) {
             "product_count": item.quantity + "",
         }, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
             }
         });
         console.log(response);
@@ -103,7 +103,7 @@ export async function OrderList() {
     try {
         const response = await axios.get(`${BASE_URL}/order/list/all`, {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
             }
         });
         console.log(response);

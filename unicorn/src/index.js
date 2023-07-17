@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 
 import Option from './pages/Option';
+import Qrpage from './pages/Qrpage';
 
 
 const router = createBrowserRouter([
@@ -21,11 +22,13 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, path: '/', element: <Login /> },
+      { path: '/qr', element: <Qrpage /> },
       { path: 'signup', element: <SignUp /> },
       { path: 'order/:tableNumber', element: <Order /> },
-      { path: 'order/:tableNumber/:type/:foodId', element: <Option/> },
-      { path: 'order/:tableNumber/receipt', element: <Receipt /> }
-    ]
+      { path: 'order/:tableNumber/:type/:foodId', element: <Option /> },
+      { path: 'order/:tableNumber/receipt', element: <Receipt /> },
+
+    ],
   }
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
