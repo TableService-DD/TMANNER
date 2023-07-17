@@ -27,8 +27,9 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                 }
                 return cartItem;
             });
-
+            CartAdd(updatedCart);
             setCart(updatedCart);
+
         } else {
             const newItem = {
                 name: item.name,
@@ -37,6 +38,8 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                 quantity: 1,
                 selectedOptions: options
             };
+            console.log("newItem", newItem);
+            CartAdd(newItem);
             setCart([...cart, newItem]);
         }
     };
@@ -55,7 +58,7 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                         }
                     }
                     return (
-                        <div key={item.name} className='relative'>
+                        <div key={index} className='relative'>
                             <img
                                 className='w-[110px] h-[110px] rounded-xl overflow-hidden bg-white p-4'
                                 src={item.image}

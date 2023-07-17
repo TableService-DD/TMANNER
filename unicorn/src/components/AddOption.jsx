@@ -54,7 +54,6 @@ function AddOption({ addOption, name, price, image }) {
       };
       setCart([...cart, newItem]);
     }
-
     navigate(`/order/${tableNumber}`);
   };
 

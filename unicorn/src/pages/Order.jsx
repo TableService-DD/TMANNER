@@ -23,23 +23,9 @@ export default function Order() {
         fetchData();
     }, [menu]);
 
-    async function CartAddTest() {
-        await OrderList();
+    const HandleCartList = async () => {
+        const cartList = await CartList();
     }
-
-
-    async function CartListData() {
-        const cartData = await CartList();
-    }
-
-    async function handleUserList() {
-        const userList = await getUserList();
-    }
-
-    async function handleUserUpdate(email) {
-        const userList = await UpdateUser(email);
-    }
-
     useEffect(() => {
         console.log(cart);
     }, [cart])
@@ -51,10 +37,7 @@ export default function Order() {
 
     return (
         <section className='flex flex-col'>
-            <button onClick={(e) => handleUserUpdate("Kevin@naver.com")} className='p-4 bg-purple-300'>UPDATEUSER</button>
-            <button onClick={handleUserList} className='p-4 bg-green-400 text-white'>LIST USER</button>
-            <button onClick={CartAddTest} className='p-4 bg-primary text-white '>add</button>
-            <button onClick={CartListData} className='p-4 bg-black text-white'>list</button>
+            <button onClick={HandleCartList} className='p-4 bg-orange-400 text-white '>sss</button>
             <Banner tableNumber={tableNumber} />
             <TabSection tabs={tabs} active={active} setActive={setActive} />
             {

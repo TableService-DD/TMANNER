@@ -11,11 +11,11 @@ export default function Cart() {
         '>
             <div className='relative flex justify-start items-center px-2 w-full rounded-xl h-full bg-gradient-to-r from-orange-200 to-primary'>
                 <div className="grid grid-cols-4 items-center x-auto overflow-scroll max-w-[300px] gap-2 w-4/5 h-[55px] ">
-                    {cart.map((item) => {
+                    {cart.map((item, index) => {
                         return (
-                            <div key={item.name}
+                            <div key={index}
                                 className='relative w-[55px] h-full bg-white rounded-xl'>
-                                <img  
+                                <img
                                     className='w-full h-[55px] rounded-xl object-contain'
                                     src={item.image}
                                     alt={item.name} />

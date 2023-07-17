@@ -79,13 +79,13 @@ export async function CartList() {
 
 
 
-export async function CartAdd() {
+export async function CartAdd(item) {
+    console.log("item", item);
     try {
         const response = await axios.post(`${BASE_URL}/cart/add`, {
-            "user_id": "Levin",
-            "product_id": "cheei",
-            "product_price": "string",
-            "product_count": "string",
+            "product_id": item.name,
+            "product_price": item.price + "",
+            "product_count": item.quantity + "",
         }, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
