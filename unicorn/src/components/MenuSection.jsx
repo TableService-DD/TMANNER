@@ -1,13 +1,14 @@
 import { useCartContext } from '../Context/context';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
+import { CartAdd } from '../api/data';
 
 export default function MenuSection({ menuTitle, menuItems, index, active, tableNumber }) {
     const { cart, setCart } = useCartContext();
     const navigate = useNavigate();
-    
+
     const addToCart = (item) => {
-        const options = item.addOption ? item.addOption.map(option => ({...option, quantity: 0})) : [];
+        const options = item.addOption ? item.addOption.map(option => ({ ...option, quantity: 0 })) : [];
         const itemExists = cart.find((cartItem) => {
             if (cartItem.name === item.name && JSON.stringify(cartItem.selectedOptions) === JSON.stringify(options)) {
                 return true;
@@ -26,8 +27,9 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                 }
                 return cartItem;
             });
-
+            CartAdd(updatedCart);
             setCart(updatedCart);
+
         } else {
             const newItem = {
                 name: item.name,
@@ -36,9 +38,13 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                 quantity: 1,
                 selectedOptions: options
             };
+            console.log("newItem", newItem);
+            CartAdd(newItem);
             setCart([...cart, newItem]);
         }
     };
+
+
 
     return (
         <section id={menuTitle} className='flex flex-col bg-menuSection px-5'>
@@ -52,7 +58,7 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                         }
                     }
                     return (
-                        <div key={item.name} className='relative'>
+                        <div key={index} className='relative'>
                             <img
                                 className='w-[110px] h-[110px] rounded-xl overflow-hidden bg-white p-4'
                                 src={item.image}

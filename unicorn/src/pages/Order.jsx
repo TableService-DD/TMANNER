@@ -3,9 +3,9 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Banner from '../components/Banner';
 import TabSection from '../components/TabSection';
 import MenuSection from '../components/MenuSection';
-import { fetchMenuData } from '../api/data';
+import { CartAdd, CartList, OrderList, UpdateUser, fetchMenuData, getUserList } from '../api/data';
 import Cart from '../components/Cart';
-import { CartContextProvider, useCartContext } from '../Context/context';
+import { useCartContext } from '../Context/context';
 
 export default function Order() {
     const { tableNumber } = useParams();
@@ -21,14 +21,23 @@ export default function Order() {
             setMenu(menuData);
         }
         fetchData();
-    }, []);
-    
+    }, [menu]);
+
+    const HandleCartList = async () => {
+        const cartList = await CartList();
+    }
     useEffect(() => {
         console.log(cart);
     }, [cart])
-    
+
+    const HandleCart = () => {
+        console.log("cart", cart);
+        navigate('/receipt');
+    }
+
     return (
         <section className='flex flex-col'>
+            <button onClick={HandleCartList} className='p-4 bg-orange-400 text-white '>sss</button>
             <Banner tableNumber={tableNumber} />
             <TabSection tabs={tabs} active={active} setActive={setActive} />
             {
@@ -40,15 +49,17 @@ export default function Order() {
                 }
                 )
             }
-            {cart.length && <Cart />}
-            {
-                cart.length &&
-                <button
-                    onClick={() => navigate(`receipt`)}
-                    className='fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full'>
-                    주문 준비
-                </button>
-            }
+            {cart.length > 0 && (
+                <>
+                    <Cart />
+                    <button
+                        onClick={HandleCart}
+                        className="fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full"
+                    >
+                        주문 준비
+                    </button>
+                </>
+            )}
         </section>
     )
 }
