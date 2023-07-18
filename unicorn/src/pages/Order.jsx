@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Banner from '../components/Banner';
 import TabSection from '../components/TabSection';
 import MenuSection from '../components/MenuSection';
-import { updateUser, fetchMenuData, getUserList } from '../api/data';
-import { addCart, getCartList } from '../api/cart';
+import { fetchMenuData } from '../api/data';
+// import { deleteCart, getCartList } from '../api/cart';
 import Cart from '../components/Cart';
 import { useCartContext } from '../Context/context';
 
@@ -24,9 +24,12 @@ export default function Order() {
         fetchData();
     }, [menu]);
 
-    const HandleCartList = async () => {
-        const cartList = await getCartList();
-    }
+    // const HandleDeleteCart = async (item) => {
+    //     const deleteCartList = await deleteCart("aaheeaai");
+    // }
+    // const HandleCartList = async () => {
+    //     const cartList = await getCartList();
+    // }
     useEffect(() => {
         console.log(cart);
     }, [cart])
@@ -37,7 +40,8 @@ export default function Order() {
     }
     return (
         <section className='flex flex-col'>
-            <button onClick={HandleCartList} className='p-4 bg-orange-400 text-white '>sss</button>
+            {/* <button onClick={HandleDeleteCart} className='bg-black text-white p-2'>delete</button>
+            <button onClick={HandleCartList} className='p-2 bg-orange-400 text-white '>sss</button> */}
             <Banner tableNumber={tableNumber} />
             <TabSection tabs={tabs} active={active} setActive={setActive} />
             {
@@ -52,12 +56,6 @@ export default function Order() {
             {cart.length > 0 && (
                 <>
                     <Cart />
-                    <button
-                        onClick={HandleCart}
-                        className="fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full"
-                    >
-                        주문 준비
-                    </button>
                 </>
             )}
         </section>

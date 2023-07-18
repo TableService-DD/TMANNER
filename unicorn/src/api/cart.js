@@ -15,6 +15,24 @@ export async function getCartList() {
     }
 }
 
+export async function deleteCart(product_id) {
+    try {
+        const response = await axios.delete(`${BASE_URL}/cart/delete`, {
+            data: {
+                "product_id": "aaheeaai",
+            },
+            headers: {
+                Authorization: `Bearer ${sessionStorage.getItem('token')}`
+            }
+        });
+        console.log(response);
+        console.log("CartDelete 성공");
+        return true;
+    } catch (error) {
+        console.error("CartDelete 실패:", error);
+        return false;
+    }
+}
 
 
 export async function addCart(item) {

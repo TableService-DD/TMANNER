@@ -4,16 +4,13 @@ import './index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Error from './pages/Error';
-import Home from './pages/Home';
 import Order from './pages/Order';
 import Receipt from './pages/Receipt';
 
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-
 import Option from './pages/Option';
-import Qrpage from './pages/Qrpage';
-
+import QrPage from './pages/QrPage';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, path: '/', element: <Login /> },
-      { path: '/qr', element: <Qrpage /> },
+      { path: '/qr', element: <QrPage /> },
       { path: 'signup', element: <SignUp /> },
       { path: 'order/:tableNumber', element: <Order /> },
       { path: 'order/:tableNumber/:type/:foodId', element: <Option /> },

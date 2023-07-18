@@ -3,10 +3,8 @@ import { QRCodeCanvas } from 'qrcode.react';
 import { useNavigate } from 'react-router-dom';
 import { getLocation } from '../api/location';
 
-export default function Qrpage() {
-
+export default function QrPage() {
     const navigate = useNavigate();
-
     useEffect(() => {
         getLocation();
     });
