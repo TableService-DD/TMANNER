@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { checkUser, loginUser } from '../api/user';
+import { ImSpinner9 } from 'react-icons/im';
 
-const INPUT_STYLE = "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:primary focus:border-primary focus:z-10 sm:text-sm";
+const INPUT_STYLE = "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:primary focus:border-primary  sm:text-sm";
 export default function Login() {
     const [user_id, setUserId] = useState('');
     const [user_pw, setPassword] = useState('');
+    const [isloading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const handleSubmit = async e => {
         e.preventDefault();
+        setIsLoading(true);
         const success = await loginUser({ user_id, user_pw });
+        setIsLoading(false);
         if (success) {
             console.log("로그인 성공")
             navigate('/order/1');
@@ -20,7 +24,14 @@ export default function Login() {
         checkUser();
     };
     return (
-        <div className="min-h-screen-lg flex flex-col items-start justify-center bg-gray-50 py-12 px-4">
+        <div className="min-h-screen-lg flex flex-col items-start justify-center bg-gray-50 py-12 px-4 relative">
+            {isloading && <div
+                className='absolute flex items-center border-primary border-[1px] shadow-xl px-3 py-2 text-wite font-bold gap-4 rounded-full text-sm z-20 bg-white 
+                top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                '>
+                <ImSpinner9 className='text-primary animate-spin spin-in text-4xl' />
+                <h1>Loading....</h1>
+            </div>}
             <button onClick={() => handleCheck()} className='p-4 bg-black text-white'>Check</button>
             <div className="max-w-md w-full space-y-8">
                 <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">로그인</h2>
@@ -69,8 +80,6 @@ export default function Login() {
                     </Link>
                 </div>
             </div>
-
         </div>
-
     )
 }
