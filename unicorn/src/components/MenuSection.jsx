@@ -1,8 +1,7 @@
 import { useCartContext } from '../Context/context';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
-import { CartAdd } from '../api/data';
-
+import { addCart } from '../api/cart';
 export default function MenuSection({ menuTitle, menuItems, index, active, tableNumber }) {
     const { cart, setCart } = useCartContext();
     const navigate = useNavigate();
@@ -27,7 +26,7 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                 }
                 return cartItem;
             });
-            CartAdd(updatedCart);
+            addCart(updatedCart);
             setCart(updatedCart);
 
         } else {
@@ -39,7 +38,7 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
                 selectedOptions: options
             };
             console.log("newItem", newItem);
-            CartAdd(newItem);
+            addCart(newItem);
             setCart([...cart, newItem]);
         }
     };

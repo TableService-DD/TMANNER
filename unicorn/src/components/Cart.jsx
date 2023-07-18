@@ -1,6 +1,5 @@
 import React from 'react'
 import { PiShoppingCartSimpleFill } from 'react-icons/pi';
-import MultiCarousel from './MultiCarousel';
 import { useCartContext } from '../Context/context';
 
 export default function Cart() {

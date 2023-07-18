@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Banner from '../components/Banner';
 import TabSection from '../components/TabSection';
 import MenuSection from '../components/MenuSection';
-import { CartAdd, CartList, OrderList, UpdateUser, fetchMenuData, getUserList } from '../api/data';
+import { updateUser, fetchMenuData, getUserList } from '../api/data';
+import { addCart, getCartList } from '../api/cart';
 import Cart from '../components/Cart';
 import { useCartContext } from '../Context/context';
 
@@ -24,7 +25,7 @@ export default function Order() {
     }, [menu]);
 
     const HandleCartList = async () => {
-        const cartList = await CartList();
+        const cartList = await getCartList();
     }
     useEffect(() => {
         console.log(cart);
@@ -34,7 +35,6 @@ export default function Order() {
         console.log("cart", cart);
         navigate('/receipt');
     }
-
     return (
         <section className='flex flex-col'>
             <button onClick={HandleCartList} className='p-4 bg-orange-400 text-white '>sss</button>

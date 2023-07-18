@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { useCartContext } from '../Context/context';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AddToCartButton, OptionBox, OptionItem, OptionList, OptionName, OptionPrice, OptionQuantity, OptionQuantityBox, OptionQuantityBtn, OptionTitle, Quantity, QuantityBox, QuantityBtn, QuantityDisplayBox, QuantityTitle } from '../styled-components/option';
@@ -17,7 +16,7 @@ function AddOption({ addOption, name, price, image }) {
       if (product.name !== name) return false;
       for (let i = 0; i < addOption.length; i++) {
         if (product.selectedOptions[i].quantity !== oquantities[i]) {
-          return false;
+          return false
         }
       }
       return true;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { CheckUser, UserLogin } from '../api/data';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { checkUser, loginUser } from '../api/user';
+
 const INPUT_STYLE = "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:primary focus:border-primary focus:z-10 sm:text-sm";
 export default function Login() {
     const [user_id, setUserId] = useState('');
@@ -9,7 +9,7 @@ export default function Login() {
     const navigate = useNavigate();
     const handleSubmit = async e => {
         e.preventDefault();
-        const success = await UserLogin({ user_id, user_pw });
+        const success = await loginUser({ user_id, user_pw });
         if (success) {
             console.log("로그인 성공")
             navigate('/order/1');
@@ -17,7 +17,7 @@ export default function Login() {
     };
 
     const handleCheck = () => {
-        CheckUser();
+        checkUser();
     };
     return (
         <div className="min-h-screen-lg flex flex-col items-start justify-center bg-gray-50 py-12 px-4">
