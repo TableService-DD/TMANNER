@@ -24,12 +24,6 @@ export default function Order() {
         fetchData();
     }, [menu]);
 
-    // const HandleDeleteCart = async (item) => {
-    //     const deleteCartList = await deleteCart("aaheeaai");
-    // }
-    // const HandleCartList = async () => {
-    //     const cartList = await getCartList();
-    // }
     useEffect(() => {
         console.log(cart);
     }, [cart])
@@ -40,8 +34,6 @@ export default function Order() {
     }
     return (
         <section className='flex flex-col'>
-            {/* <button onClick={HandleDeleteCart} className='bg-black text-white p-2'>delete</button>
-            <button onClick={HandleCartList} className='p-2 bg-orange-400 text-white '>sss</button> */}
             <Banner tableNumber={tableNumber} />
             <TabSection tabs={tabs} active={active} setActive={setActive} />
             {

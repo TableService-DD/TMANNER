@@ -48,7 +48,7 @@ export default function MenuSection({ menuTitle, menuItems, index, active, table
     return (
         <section id={menuTitle} className='flex flex-col bg-menuSection px-5'>
             <h1 className='text-left py-2 font-bold'>{menuTitle}</h1>
-            <div className='grid grid-cols-3 relative gap-2'>
+            <div id='cartbox' className='grid grid-cols-3 relative gap-2'>
                 {menuItems.map((item, index) => {
                     const hotImages = [];
                     if (item.hotLevel) {
