@@ -12,10 +12,10 @@ export default function QrPage() {
     const requestLocation = () => {
         getLocation().then(() => {
             setError(null);
-            setModalOpen(true);  // 위치 정보 요청에 승인하면 모달창이 뜹니다.
         }).catch(error => {
             if (error.code === 'PERMISSION_DENIED') {
                 setError('서비스를 이용하려면 위치 액세스가 필요합니다. 브라우저 설정에서 위치 액세스를 활성화하세요.');
+                setModalOpen(true);  // 위치 정보 요청이 거부되면 모달창이 뜹니다.
             } else {
                 setError('알 수 없는 에러가 발생했습니다. 다시 시도해주세요.');
             }
@@ -36,15 +36,15 @@ export default function QrPage() {
             <h1 className='text-primary text-4xl mb-4 font-bold'>QR CODE</h1>
             {error && (
                 <>
-                    <p className='text-red-500'>{error}</p>
-                    <button className='mt-4 bg-blue-500 text-white p-2 rounded' onClick={requestLocation}>
+                    <p className='w-2/3 text-sm leading-4'>{error}</p>
+                    <button className='my-2 bg-blue-500 text-white p-2 rounded' onClick={requestLocation}>
                         Check Location Access
                     </button>
                 </>
             )}
             {isModalOpen && (
                 <Modal onClose={closeModalAndNavigate}>
-                    위치 액세스 권한이 성공적으로 부여되었습니다.
+                    서비스를 이용하려면 위치 액세스가 필요합니다. 브라우저 설정에서 위치 액세스를 활성화하세요.
                 </Modal>
             )}
             <QRCodeCanvas
@@ -52,7 +52,7 @@ export default function QrPage() {
                 includeMargin
                 fgColor="#393E46"
                 size={200}
-                onClick={() => navigate('/')} value="/" />
+                onClick={() => navigate('/login')} value="/" />
         </section>
     )
 }
