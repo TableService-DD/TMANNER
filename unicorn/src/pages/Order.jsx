@@ -32,7 +32,7 @@ export default function Order() {
 
     const HandleCart = () => {
         console.log("cart", cart);
-        navigate('/receipt');
+        navigate('receipt');
     }
 
     return (
