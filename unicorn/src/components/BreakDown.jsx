@@ -151,7 +151,7 @@ function BreakDownItem({ item, handleRemoveItem, handleDecreaseQuantity, handleI
         <TextBox>
           <ItemName>{item.name}</ItemName>
           <ItemOptionlist>
-            {item.selectedOptions.map((optionGroup, optionIndex) => (
+            {item.selectedOptions.filter(option => option.quantity > 0).map((optionGroup, optionIndex) => (
               <ItemText key={optionIndex}>{optionGroup.name}</ItemText>
             ))}
           </ItemOptionlist>
@@ -171,6 +171,7 @@ function BreakDownItem({ item, handleRemoveItem, handleDecreaseQuantity, handleI
     </BreakItem>
   );
 }
+
 
 function BreakDown({ tableNumber }) {
   const { cart, setCart } = useCartContext();
