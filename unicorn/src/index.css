@@ -34,3 +34,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* animation Section */
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  animation: fadeInOut 1.2s infinite;
+}
+
+@keyframes backgroundChange {
+  0% {
+    background-color: #FF6A00;
+  }
+
+  50% {
+    background-color: #FFA366;
+  }
+
+  100% {
+    background-color: #FF6A00;
+  }
+}
+
+.loading-background {
+  animation: backgroundChange 2s infinite;
+}

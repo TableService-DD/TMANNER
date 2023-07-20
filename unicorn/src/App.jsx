@@ -12,9 +12,7 @@ function App() {
 
   return (
     <CartContextProvider>
-      <div className="App">
-        <Outlet />
-      </div>
+      <Outlet />
     </CartContextProvider>
 
   );
