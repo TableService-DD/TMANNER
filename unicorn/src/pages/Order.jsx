@@ -7,6 +7,7 @@ import { fetchMenuData } from '../api/data';
 // import { deleteCart, getCartList } from '../api/cart';
 import Cart from '../components/Cart';
 import { useCartContext } from '../Context/context';
+import { deleteCart, getCartList } from '../api/cart';
 
 export default function Order() {
     const { tableNumber } = useParams();
@@ -32,6 +33,11 @@ export default function Order() {
         console.log("cart", cart);
         navigate('/receipt');
     }
+
+    const getCart = () => {
+        getCartList();
+    }
+
     return (
         <section className='flex flex-col'>
             <Banner tableNumber={tableNumber} />

@@ -3,9 +3,8 @@ export const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 position => {
-                    console.log('Location access granted');
-                    console.log('Latitude:', position.coords.latitude);
-                    console.log('Longitude:', position.coords.longitude);
+                    // console.log('Latitude:', position.coords.latitude);
+                    // console.log('Longitude:', position.coords.longitude);
                     resolve(position);
                 },
                 error => {
@@ -18,7 +17,7 @@ export const getLocation = () => {
                 }
             );
         } else {
-            reject(new Error('Geolocation is not supported by this browser.'));
+            reject(new Error('위치정보를 받아올 수 없습니다.'));
         }
     });
 };

@@ -25,6 +25,7 @@ export async function loginUser({ user_id, user_pw }) {
         console.log(response);
         if (response.data.access_token) {
             sessionStorage.setItem('token', response.data.access_token);
+            sessionStorage.setItem('user_id', user_id);
 
             return true;
         } else if (response.data.message) {

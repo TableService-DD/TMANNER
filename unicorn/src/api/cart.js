@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./data";
 export async function getCartList() {
     try {
-        const response = await axios.get(`${BASE_URL}/cart/list`, {
+        const response = await axios.get(`${BASE_URL}/cart/list/all`, {
             headers: {
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`
             }
@@ -18,8 +18,8 @@ export async function getCartList() {
 export async function deleteCart(product_id) {
     try {
         const response = await axios.delete(`${BASE_URL}/cart/delete`, {
-            data: {
-                "product_id": "aaheeaai",
+            params: {
+                "product_id": product_id,
             },
             headers: {
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -40,8 +40,8 @@ export async function addCart(item) {
     try {
         const response = await axios.post(`${BASE_URL}/cart/add`, {
             "product_id": item.name,
-            "product_price": item.price + "",
-            "product_count": item.quantity + "",
+            "product_price": item.price,
+            "product_count": item.quantity,
         }, {
             headers: {
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`

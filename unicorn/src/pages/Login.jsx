@@ -8,7 +8,7 @@ const INPUT_STYLE = "appearance-none rounded-none relative block w-full px-3 py-
 export default function Login() {
     const [user_id, setUserId] = useState('');
     const [user_pw, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async e => {

@@ -1,17 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useSwipeable } from 'react-swipeable';
 import { PiShoppingCartSimpleFill } from 'react-icons/pi';
 import { useCartContext } from '../Context/context';
 
 export default function Cart() {
     const { cart, setCart } = useCartContext();
     const [isVisible, setIsVisible] = useState(false);
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => setIsVisible(false),
+        onSwipedRight: () => setIsVisible(true),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    });
+
     return (
         <section
             className='z-0 fixed flex items-center bottom-[60px] w-[80%] h-[65px] right-10
         '>
             {!isVisible &&
                 <div className='relative flex justify-start items-center px-2 w-full rounded-xl h-full bg-gradient-to-r from-orange-200 to-primary'>
-                    <div className="grid grid-cols-4 items-center x-auto overflow-scroll max-w-[300px] gap-2 w-4/5 h-[55px] ">
+                    <div
+                        id='testbox'
+                        className="grid grid-cols-4 items-center x-auto overflow-scroll max-w-[300px] gap-2 w-4/5 h-[55px] "
+                        {...handlers}>
                         {cart.map((item, index) => {
                             return (
                                 <div key={index}
