@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, path: '/', element: <QrPage /> },
-      { path: '/login', element: <LocationAccessChecker><Login /></LocationAccessChecker> },
+      { path: '/login', element: <Login /> },
       { path: 'signup', element: <LocationAccessChecker><SignUp /></LocationAccessChecker> },
       { path: 'order/:tableNumber', element: <LocationAccessChecker><Order /></LocationAccessChecker> },
       { path: 'order/:tableNumber/:type/:foodId', element: <LocationAccessChecker><Option /></LocationAccessChecker> },

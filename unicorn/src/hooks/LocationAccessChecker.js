@@ -7,9 +7,15 @@ export const LocationAccessChecker = ({ children }) => {
     const [hasAccess, setHasAccess] = useState(false);
 
     useEffect(() => {
-        getLocation()
-            .then(() => setHasAccess(true))
-            .catch(() => navigate('/'));
+        const token = sessionStorage.getItem('token');
+
+        if (!token) {
+            navigate('/login');
+        } else {
+            getLocation()
+                .then(() => setHasAccess(true))
+                .catch(() => navigate('/'));
+        }
     }, [navigate]);
 
     return hasAccess ? children : null;
