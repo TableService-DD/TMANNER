@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSwipeable } from 'react-swipeable';
+import { CSSTransition } from 'react-transition-group';
 import { PiShoppingCartSimpleFill } from 'react-icons/pi';
 import { useCartContext } from '../Context/context';
 
@@ -7,24 +7,21 @@ export default function Cart() {
     const { cart, setCart } = useCartContext();
     const [isVisible, setIsVisible] = useState(false);
 
-    const handlers = useSwipeable({
-        onSwipedLeft: () => setIsVisible(false),
-        onSwipedRight: () => setIsVisible(true),
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true
-    });
-
     return (
         <section
-            className={`z-0 fixed flex items-center bottom-[60px] w-[80%] h-[65px] right-10
-             transition-all duration-500 ease-in-out ${isVisible ? 'transform translate-x-0' : 'transform -translate-x-full'}`}
-        >
-            {!isVisible &&
+            className='z-0 fixed flex items-center bottom-[60px] w-[80%] h-[65px] right-10
+        '>
+            <CSSTransition
+                in={!isVisible}
+                timeout={300}
+                classNames="my-node"
+                unmountOnExit
+            >
                 <div className='relative flex justify-start items-center px-2 w-full rounded-xl h-full bg-gradient-to-r from-orange-200 to-primary'>
                     <div
                         id='testbox'
                         className="grid grid-cols-none grid-flow-col items-center justify-start x-auto overflow-x-auto overflow-y-hidden max-w-[300px] gap-2 w-4/5 h-[55px] "
-                        {...handlers}>
+                    >
                         {cart.map((item, index) => {
                             return (
                                 <div key={index}
@@ -42,14 +39,15 @@ export default function Cart() {
                         )}
                     </div>
                 </div>
-            }
+            </CSSTransition>
 
             <div
                 onClick={() => setIsVisible(!isVisible)}
-                className='absolute -right-4 bottom-[34px]
+                className={`absolute -right-4 bottom-[34px]
                     transform translate-y-1/2 
                     w-[75px] h-[75px] z-99 rounded-full 
-                        flex justify-center items-center p-2 text-5xl bg-primary text-white'>
+                    flex justify-center items-center p-2 text-5xl bg-primary text-white ${isVisible && 'opacity-50'}`}
+            >
                 <PiShoppingCartSimpleFill />
             </div>
             {!isVisible &&
@@ -61,5 +59,4 @@ export default function Cart() {
             }
         </section>
     )
-
 }
