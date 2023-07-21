@@ -16,8 +16,9 @@ export default function Cart() {
 
     return (
         <section
-            className='z-0 fixed flex items-center bottom-[60px] w-[80%] h-[65px] right-10
-        '>
+            className={`z-0 fixed flex items-center bottom-[60px] w-[80%] h-[65px] right-10
+             transition-all duration-500 ease-in-out ${isVisible ? 'transform translate-x-0' : 'transform -translate-x-full'}`}
+        >
             {!isVisible &&
                 <div className='relative flex justify-start items-center px-2 w-full rounded-xl h-full bg-gradient-to-r from-orange-200 to-primary'>
                     <div
@@ -60,4 +61,5 @@ export default function Cart() {
             }
         </section>
     )
+
 }

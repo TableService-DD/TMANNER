@@ -1,28 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getLocation } from '../api/location';
-import { useIntervalCheck } from './useIntervalCheck';
 
 export const LocationAccessChecker = ({ children }) => {
     const navigate = useNavigate();
     const [hasAccess, setHasAccess] = useState(false);
 
-    const checkLocationAndLogin = () => {
-        getLocation()
-            .then(() => {
-                if (sessionStorage.getItem('token')) {
-                    setHasAccess(true);
-                } else {
-                    navigate('/login');
-                }
-            })
-            .catch(() => navigate('/'));
-    };
+    useEffect(() => {
+        const token = sessionStorage.getItem('token');
 
-    useIntervalCheck(checkLocationAndLogin, 20000);
+        if (!token) {
+            navigate('/login');
+        } else {
+            getLocation()
+                .then(() => setHasAccess(true))
+                .catch(() => navigate('/'));
+        }
+    }, [navigate]);
 
     return hasAccess ? children : null;
 };
-
-
-
