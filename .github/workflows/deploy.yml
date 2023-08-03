@@ -1,0 +1,70 @@
+name: pipeline runner
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16]
+    outputs:
+      version: ${{ steps.set-version.outputs.version }}
+      tag: ${{ steps.set-version.outputs.tag }}
+    steps:
+      - name: Git Clone, Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx for Docker Cache
+        uses: docker/setup-buildx-action@v2
+
+      - name: Cache Dependencies
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install --no-progress --emoji=false
+
+      - name: Build App
+        run: |
+          rm -rf node_modules/.cache
+          yarn build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_QA }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_QA }}
+          aws-region: ap-northeast-2
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Set ENVs
+        id: set-version
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: finance/finance-front/dev
+          version: ${{ steps.set-version.outputs.version }}
+        run: |
+          version=$(jq -r .version package.json)-$(date '+%Y%m%d-%H%M%S')
+          echo "::set-output name=version::$version"
+          echo "::set-output name=tag::$ECR_REGISTRY/$ECR_REPOSITORY:$version"
+
+      - name: Build, tag, and push image to Amazon ECR
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.set-version.outputs.tag }}
+          file: qa.github.Dockerfile
+
+      - name: Check Container Tag
+        env:
+          version: ${{ steps.set-version.outputs.version }}
+        run: echo version $version

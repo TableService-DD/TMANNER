@@ -1,0 +1,15 @@
+FROM node:16.20.1
+WORKDIR /app
+COPY package.json yarn.lock ./
+
+RUN yarn
+COPY . .
+RUN yarn build
+
+FROM ubuntu:latest
+WORKDIR /app
+COPY . .
+
+COPY --from=builder /app/build ./build
+EXPOSE 3000
+CMD ["yarn", "start"]
