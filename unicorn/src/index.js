@@ -9,9 +9,8 @@ import Receipt from "./pages/Receipt";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Option from "./pages/Option";
-
 import { LocationAccessChecker } from "./hooks/LocationAccessChecker";
-import QrPage from "./pages/Qrpage";
+import ReceiptTest from "./pages/ReceiptTest";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +18,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
-      { index: true, path: "/login", element: <Login /> },
-      { path: "/", element: <QrPage /> },
+      { index: true, path: "/", element: <Login /> },
       {
         path: "signup",
         element: (
@@ -50,6 +48,15 @@ const router = createBrowserRouter([
         element: (
           <LocationAccessChecker>
             <Receipt />
+          </LocationAccessChecker>
+        ),
+      },
+      // Receipt
+      {
+        path: "receipt/:tableNumber",
+        element: (
+          <LocationAccessChecker>
+            <ReceiptTest />
           </LocationAccessChecker>
         ),
       },

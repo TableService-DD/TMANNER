@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-  font-family: 'Racing';
-  src: url('fonts/RacingSansOne-Regular.ttf');
+  font-family: "Racing";
+  src: url("fonts/RacingSansOne-Regular.ttf");
 }
 
 * {
@@ -18,20 +17,20 @@
 body {
   margin: 0;
 
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
-  @apply w-full h-[100vh] max-w-[390px] mx-auto rounded-xl overflow-auto;
-  @apply shadow-2xl
+  @apply w-full max-w-[390px] mx-auto rounded-xl overflow-auto;
+  @apply shadow-2xl;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -57,15 +56,15 @@ code {
 
 @keyframes backgroundChange {
   0% {
-    background-color: #FF6A00;
+    background-color: #ff6a00;
   }
 
   50% {
-    background-color: #FFA366;
+    background-color: #ffa366;
   }
 
   100% {
-    background-color: #FF6A00;
+    background-color: #ff6a00;
   }
 }
 
