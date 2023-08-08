@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Banner from "../components/Banner";
 import TabSection from "../components/TabSection";
 import MenuSection from "../components/MenuSection";
@@ -13,7 +13,6 @@ export default function Order() {
   const [active, setActive] = useState(0);
   const [menu, setMenu] = useState(null);
   const { cart, setCart } = useCartContext();
-  const navigate = useNavigate();
   useEffect(() => {
     async function fetchData() {
       const menuData = await fetchMenuData();
@@ -35,8 +34,6 @@ export default function Order() {
 
   return (
     <section className="flex flex-col">
-      <button onClick={getCart}>getCart</button>
-      <button onClick={cartDelete}>deleteCart</button>
       <Banner tableNumber={tableNumber} />
       <TabSection tabs={tabs} active={active} setActive={setActive} />
       <div className="pb-2 bg-menuSection">

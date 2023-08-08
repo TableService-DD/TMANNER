@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { useCartContext } from "../Context/context";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Cart() {
   const { cart, setCart } = useCartContext();
+  const { tableNumber } = useParams();
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
   return (
@@ -59,7 +60,7 @@ export default function Cart() {
       {!isVisible && (
         <button
           className="fixed bottom-3 text-2xl font-bold w-[80%] self-center h-[40px] bg-white text-black border-2 border-primary rounded-full"
-          onClick={() => navigate("/order/1/receipt")}
+          onClick={() => navigate(`/receipt/${tableNumber}`)}
         >
           주문 준비
         </button>

@@ -7,7 +7,7 @@ export async function getCartList() {
         Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     });
-    console.log(response);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("데이터 가져오기 실패:", error);
@@ -30,6 +30,30 @@ export async function deleteCart(product_id) {
     return true;
   } catch (error) {
     console.error("CartDelete 실패:", error);
+    return false;
+  }
+}
+
+export async function updateCart(item) {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/cart/update`,
+      {
+        product_id: item.product_id,
+        product_price: item.product_price,
+        product_count: item.product_count,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      }
+    );
+    console.log(response);
+    console.log("CartUpdate 성공");
+    return true;
+  } catch (error) {
+    console.error("CartUpdate 실패:", error);
     return false;
   }
 }
