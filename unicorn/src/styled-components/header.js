@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+
 export const StyledHeader = styled.header`
+  font-family: 'SUIT';
   display: flex;
+  font-weight: 500;
   justify-content: space-between;
   align-items: center;
   width: 100%;

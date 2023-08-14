@@ -9,9 +9,12 @@ import Receipt from "./pages/Receipt";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Option from "./pages/Option";
+import Payment from "./pages/Payment";
+
 
 import { LocationAccessChecker } from "./hooks/LocationAccessChecker";
 import QrPage from "./pages/Qrpage";
+
 
 const router = createBrowserRouter([
   {
@@ -50,6 +53,14 @@ const router = createBrowserRouter([
         element: (
           <LocationAccessChecker>
             <Receipt />
+          </LocationAccessChecker>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <LocationAccessChecker>
+            <Payment/>
           </LocationAccessChecker>
         ),
       },
