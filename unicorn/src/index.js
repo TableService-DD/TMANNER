@@ -14,6 +14,7 @@ import Payment from "./pages/Payment";
 
 import { LocationAccessChecker } from "./hooks/LocationAccessChecker";
 import QrPage from "./pages/Qrpage";
+import {TossPayment} from "./pages/TossPayment";
 
 
 const router = createBrowserRouter([
@@ -61,6 +62,14 @@ const router = createBrowserRouter([
         element: (
           <LocationAccessChecker>
             <Payment/>
+          </LocationAccessChecker>
+        ),
+      },
+      {
+        path: "tosspayment",
+        element: (
+          <LocationAccessChecker>
+            <TossPayment/>
           </LocationAccessChecker>
         ),
       },
