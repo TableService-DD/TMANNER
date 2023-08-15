@@ -21,11 +21,7 @@ const router = createBrowserRouter([
       { index: true, path: "/", element: <Login /> },
       {
         path: "signup",
-        element: (
-          <LocationAccessChecker>
-            <SignUp />
-          </LocationAccessChecker>
-        ),
+        element: <SignUp />,
       },
       {
         path: "order/:tableNumber",

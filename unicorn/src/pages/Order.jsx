@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Banner from "../components/Banner";
 import TabSection from "../components/TabSection";
 import MenuSection from "../components/MenuSection";
 import { fetchMenuData } from "../api/data";
@@ -9,7 +8,15 @@ import { useCartContext } from "../Context/context";
 import { deleteCart, getCartList } from "../api/cart";
 export default function Order() {
   const { tableNumber } = useParams();
-  const [tabs, setTabs] = useState(["SET", "MAIN", "SIDE", "DRINK"]);
+  const [tabs, setTabs] = useState([
+    "SET",
+    "MAIN",
+    "PREMIUM",
+    "SALAD",
+    "SIDE",
+    "DRINK",
+    "ALCOHOL",
+  ]);
   const [active, setActive] = useState(0);
   const [menu, setMenu] = useState(null);
   const { cart, setCart } = useCartContext();
@@ -21,21 +28,30 @@ export default function Order() {
     fetchData();
   }, [menu]);
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+  // useEffect(() => {
+  //   console.log(cart);
+  // }, [cart]);
 
   const getCart = () => {
     getCartList();
   };
-  const cartDelete = () => {
-    deleteCart("Signature");
-  };
 
   return (
     <section className="flex flex-col">
-      <Banner tableNumber={tableNumber} />
+      <div className="px-3 py-4 flex justify-between items-center rounded-b-xl shadow-md">
+        <div className="flex items-center gap-3">
+          <h2 className="text-xl font-bold">BURGERS SHOP</h2>
+          <span className="font-bold text-primary text-xl">
+            {tableNumber}번
+          </span>
+        </div>
+        <button className="p-2 tracking-wider bg-primary text-white font-bold rounded-md">
+          빠른요청
+        </button>
+      </div>
       <TabSection tabs={tabs} active={active} setActive={setActive} />
+      {/* divide */}
+      <div className="w-full h-[2px] bg-primary" />
       <div className="pb-2 bg-menuSection">
         {menu &&
           Object.keys(menu).map((menuTitle, index) => {
