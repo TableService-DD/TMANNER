@@ -9,7 +9,7 @@ function OrderDetails(props) {
         <DetailContainer>
             <MainContainer>
                 <FinalText>총 주문금액</FinalText>
-                <PriceText>30,000원</PriceText>
+                <PriceText>45,000원</PriceText>
             </MainContainer>
 
             <DetailBox>

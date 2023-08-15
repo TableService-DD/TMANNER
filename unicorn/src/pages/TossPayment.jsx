@@ -18,7 +18,7 @@ export function TossPayment() {
   const paymentWidgetRef = useRef(null);
   const paymentMethodsWidgetRef = useRef(null);
   //제품 가격 -> API 받아오기
-  const [price, setPrice] = useState(70_000);
+  const [price, setPrice] = useState(45_000);
 
   useEffect(() => {
     (async () => {
