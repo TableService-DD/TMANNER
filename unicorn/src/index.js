@@ -9,9 +9,15 @@ import Receipt from "./pages/Receipt";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Option from "./pages/Option";
+import Payment from "./pages/Payment";
+
 
 import { LocationAccessChecker } from "./hooks/LocationAccessChecker";
 import QrPage from "./pages/Qrpage";
+import {TossPayment} from "./pages/TossPayment";
+import OrderFail from "./pages/OrderFail";
+import OrderComplete from "./pages/OrderComplete";
+
 
 const router = createBrowserRouter([
   {
@@ -50,6 +56,38 @@ const router = createBrowserRouter([
         element: (
           <LocationAccessChecker>
             <Receipt />
+          </LocationAccessChecker>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <LocationAccessChecker>
+            <Payment/>
+          </LocationAccessChecker>
+        ),
+      },
+      {
+        path: "tosspayment",
+        element: (
+          <LocationAccessChecker>
+            <TossPayment/>
+          </LocationAccessChecker>
+        ),
+      },
+      {
+        path: "success/*",
+        element: (
+          <LocationAccessChecker>
+            <OrderComplete/>
+          </LocationAccessChecker>
+        ),
+      },
+      {
+        path: "fail/*",
+        element: (
+          <LocationAccessChecker>
+            <OrderFail/>
           </LocationAccessChecker>
         ),
       },

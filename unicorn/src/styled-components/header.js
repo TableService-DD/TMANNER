@@ -1,26 +1,44 @@
 import styled from 'styled-components';
+
 export const StyledHeader = styled.header`
   display: flex;
-  justify-content: space-between;
+  width: 390px;
+  height: 76px;
+  padding: 0px 29px;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 85px;
-  background-color: white;
-  color: black;
-  padding: 0 30px;
+  gap: 61px;
+  flex-shrink: 0;
+  background: #FFF; 
 `;
 
-export const BackButton = styled.button`
+export const Space = styled.div`
   display: flex;
+  width: 17px;
+  height: 28px;
   align-items: center;
-  border: none;
-  background: transparent;
+  gap: 10px;
+`
+export const BackButton = styled.button`
+  width: 17px;
+  height: 28px;
+  stroke: #000;
   cursor: pointer;
-  font-size: 24px;
   padding: 0;
 `;
 
 export const Text = styled.h1`
+  display: flex;
+  width: 187px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  color: #000;
+  text-align: center;
+  font-family: SUIT;
   font-size: 20px;
-  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;
