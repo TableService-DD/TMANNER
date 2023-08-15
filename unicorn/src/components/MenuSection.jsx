@@ -62,8 +62,8 @@ export default function MenuSection({
   };
 
   return (
-    <section id={menuTitle} className="flex flex-col bg-menuSection px-5">
-      <div id="cartbox" className="flex flex-col relative gap-2">
+    <section id={menuTitle} className="flex flex-col bg-menuSection">
+      <div id="cartbox" className="flex flex-col relative gap-2 border-b-2">
         {menuItems.map((item, index) => (
           <MenuItem
             key={index}
