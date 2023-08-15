@@ -41,7 +41,7 @@ function Receipt() {
 
   return (
     <>
-      <Header title="주문내역 확인" tableNumber={tableNumber} />
+      <Header title="주문내역 확인" />
       <BreakDown tableNumber={tableNumber} />
       <CouponSection />
       <TotalPriceContainer>

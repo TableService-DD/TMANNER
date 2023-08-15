@@ -8,8 +8,8 @@ function Header({ title, tableNumber }) {
   const navigate = useNavigate(); // Initialize useNavigate
 
   const goBack = () => {
-    navigate(`/order/${tableNumber}`); // Navigate back to Order/:tableNumber
-  };
+    navigate(-1); // Navigate back to the previous page
+  };  
 
   return (
     <StyledHeader>

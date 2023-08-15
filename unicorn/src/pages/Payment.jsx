@@ -8,7 +8,7 @@ import { PageContainer } from '../styled-components/payment';
 function Payment(props) {
     return (
         <PageContainer>
-            <Header title="결제" tableNumber={1}/>
+            <Header title="결제"/>
             <PaySelect/>
             <OrderDetails/>
         </PageContainer>

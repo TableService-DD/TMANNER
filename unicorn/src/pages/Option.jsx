@@ -28,7 +28,7 @@ function Option(props) {
     //[...cart]
     return (
         <div style={{ width: 390, height: 844 }}>
-            <Header title={'옵션'} tableNumber={tableNumber} />
+            <Header title={'옵션'} />
             {
                 menuItem &&
                 <div>
