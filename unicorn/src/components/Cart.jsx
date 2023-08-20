@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { PiShoppingCartSimpleFill } from "react-icons/pi";
 import { useCartContext } from "../Context/context";
@@ -11,7 +11,7 @@ export default function Cart() {
   const navigate = useNavigate();
   return (
     <section
-      className="z-0 fixed flex items-center bottom-[60px] w-[80%] h-[65px] right-10
+      className="z-0 fixed flex items-center justify-center bottom-[60px] w-[85%] h-[65px] right-10
         "
     >
       <CSSTransition
@@ -50,7 +50,7 @@ export default function Cart() {
         onClick={() => setIsVisible(!isVisible)}
         className={`absolute -right-4 bottom-[34px]
                     transform translate-y-1/2 
-                    w-[75px] h-[75px] z-99 rounded-full 
+                    w-[72px] h-[72px] z-99 rounded-full 
                     flex justify-center items-center p-2 text-5xl bg-primary text-white ${
                       isVisible && "opacity-50"
                     }`}

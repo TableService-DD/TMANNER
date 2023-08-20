@@ -7,7 +7,7 @@ export function OrderItem({ item, updateQuantity, cartDelete }) {
       <span className="text-xl">{item.product_id}</span>
       <div className="flex justify-between items-center">
         <span className="text-md text-textGray font-bold">
-          {item.product_price.toLocaleString()}원
+          {item.product_price?.toLocaleString()}원
         </span>
         {/* 수량 체크 */}
         <div className="flex justify-around items-center px-2 w-1/3">

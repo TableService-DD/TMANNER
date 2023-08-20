@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../Context/context";
 import { addCart } from "../api/cart";
 import MenuItem from "./MenuPage/MenuItem";
@@ -11,8 +10,6 @@ export default function MenuSection({
   tableNumber,
 }) {
   const { cart, setCart } = useCartContext();
-  const navigate = useNavigate();
-
   const addToCart = (item) => {
     const options = item.addOption
       ? item.addOption.map((option) => ({ ...option, quantity: 0 }))

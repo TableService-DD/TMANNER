@@ -17,6 +17,7 @@ export default function Login() {
     setIsLoading(true);
     const success = await loginUser({ user_id, user_pw });
     setIsLoading(false);
+    console.log(success);
     if (success) {
       console.log("로그인 성공");
       navigate("/order/1");

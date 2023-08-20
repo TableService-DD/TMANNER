@@ -8,9 +8,9 @@ import Order from "./pages/Order";
 import Receipt from "./pages/Receipt";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import Option from "./pages/Option";
 import { LocationAccessChecker } from "./hooks/LocationAccessChecker";
 import ReceiptTest from "./pages/ReceiptTest";
+import MenuOption from "./pages/MenuOption";
 
 const router = createBrowserRouter([
   {
@@ -25,36 +25,20 @@ const router = createBrowserRouter([
       },
       {
         path: "order/:tableNumber",
-        element: (
-          <LocationAccessChecker>
-            <Order />
-          </LocationAccessChecker>
-        ),
+        element: <Order />,
       },
       {
         path: "order/:tableNumber/:type/:foodId",
-        element: (
-          <LocationAccessChecker>
-            <Option />
-          </LocationAccessChecker>
-        ),
+        element: <MenuOption />,
       },
       {
         path: "order/:tableNumber/receipt",
-        element: (
-          <LocationAccessChecker>
-            <Receipt />
-          </LocationAccessChecker>
-        ),
+        element: <Receipt />,
       },
       // Receipt
       {
         path: "receipt/:tableNumber",
-        element: (
-          <LocationAccessChecker>
-            <ReceiptTest />
-          </LocationAccessChecker>
-        ),
+        element: <ReceiptTest />,
       },
     ],
   },

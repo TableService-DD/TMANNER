@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useCartContext } from '../Context/context';
-import Header from '../components/Header';
-import BreakDown from '../components/BreakDown';
-import CouponSection from '../components/CouponSection';
-import { CenteredButtonContainer, SubmitButton, TotalPriceContainer, TotalPriceText, TotalText } from '../styled-components/total';
-
-
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useCartContext } from "../Context/context";
+import Header from "../components/Header";
+import BreakDown from "../components/BreakDown";
+import CouponSection from "../components/CouponSection";
+import {
+  CenteredButtonContainer,
+  SubmitButton,
+  TotalPriceContainer,
+  TotalPriceText,
+  TotalText,
+} from "../styled-components/total";
 
 function Receipt() {
   const { tableNumber } = useParams();
-  const { cart } = useCartContext()
+  const { cart } = useCartContext();
   const [totalPrice, setTotalPrice] = useState(0);
 
   const calculatePrice = (item) => {

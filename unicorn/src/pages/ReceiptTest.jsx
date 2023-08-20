@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { deleteCart, getCartList, updateCart } from "../api/cart";
-import { useParams } from "react-router-dom";
-import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
-import { IoIosClose } from "react-icons/io";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderTitle from "../components/UI/HeaderTitle";
 import { OrderTotal } from "../components/OrderTotal";
 import { OrderItem } from "../components/OrderItem";
+import { useCartContext } from "../Context/context";
 
 export default function ReceiptTest() {
   const [receipt, setReceipt] = useState([]);
+  const { cart, setCart } = useCartContext();
   const { tableNumber } = useParams();
+  const navigate = useNavigate();
   const getCart = async () => {
     try {
       const data = await getCartList();
-      setReceipt(data);
+      setReceipt(data.data.data);
+      console.log(cart);
     } catch (error) {
       console.error("An error occurred while fetching the cart:", error);
     }
@@ -49,14 +51,14 @@ export default function ReceiptTest() {
     getCart();
   }, []);
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col relative">
       <HeaderTitle title={"장바구니"} />
       <div className="bg-menuSection h-[92vh] p-6">
-        <div className="p-6 bg-white shadow-sm rounded-md max-w-md mx-auto flex flex-col justify-center items-start">
-          <h2 className="w-full text-start text-black text-xl font-bold border-b pb-2">
+        <div className="p-6 bg-white shadow-sm rounded-md max-w-md mx-auto flex flex-col items-start">
+          <h2 className="w-full text-start text-black text-xl font-bold border-b pb-3">
             {tableNumber}번 테이블의 장바구니
           </h2>
-          <div className="flex flex-col w-full gap-2">
+          <div className="flex flex-col w-full gap-1">
             {receipt.map((item, index) => (
               <OrderItem
                 key={index}
@@ -66,8 +68,18 @@ export default function ReceiptTest() {
               />
             ))}
           </div>
-          <OrderTotal receipt={receipt} />
         </div>
+      </div>
+      <div className="absolute bottom-0 bg-white w-full pb-6 px-6 flex flex-col justify-center gap-4 rounded-t-xl">
+        <OrderTotal receipt={receipt} />
+        <button
+          onClick={() =>
+            navigate(`/order/${tableNumber}`, { state: { receipt: receipt } })
+          }
+          className="bg-primary text-white font-bold w-full py-2 rounded-full"
+        >
+          최종 주문 전송
+        </button>
       </div>
     </section>
   );

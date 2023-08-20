@@ -1,23 +1,23 @@
 import axios from "axios";
 import { BASE_URL } from "./data";
-export async function getCartList() {
+export async function getOrderList() {
   try {
-    const response = await axios.get(`${BASE_URL}/stocks/list`, {
+    const response = await axios.get(`${BASE_URL}/cart/list`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     });
-    console.log(response);
-    return response;
+    console.log("주문내역 : ", response.data.data);
+    return response.data.data;
   } catch (error) {
     console.error("데이터 가져오기 실패:", error);
     return false;
   }
 }
 
-export async function deleteCart(product_id) {
+export async function deleteOrder(product_id) {
   try {
-    const response = await axios.delete(`${BASE_URL}/stocks/delete`, {
+    const response = await axios.delete(`${BASE_URL}/cart/delete`, {
       params: {
         product_id: product_id,
       },
@@ -26,18 +26,18 @@ export async function deleteCart(product_id) {
       },
     });
     console.log(response);
-    console.log("CartDelete 성공");
+    console.log("OrderDelete 성공");
     return true;
   } catch (error) {
-    console.error("CartDelete 실패:", error);
+    console.error("OrderDelete 실패:", error);
     return false;
   }
 }
 
-export async function updateCart(item) {
+export async function updateOrder(item) {
   try {
     const response = await axios.put(
-      `${BASE_URL}/stocks/update`,
+      `${BASE_URL}/cart/update`,
       {
         product_id: item.product_id,
         product_price: item.product_price,
@@ -50,18 +50,18 @@ export async function updateCart(item) {
       }
     );
     console.log(response);
-    console.log("CartUpdate 성공");
+    console.log("OrderUpdate 성공");
     return true;
   } catch (error) {
-    console.error("CartUpdate 실패:", error);
+    console.error("OrderUpdate 실패:", error);
     return false;
   }
 }
 
-export async function addCart(item, tableNumber) {
+export async function addOrder(item, tableNumber) {
   try {
     const response = await axios.post(
-      `${BASE_URL}/stocks/add`,
+      `${BASE_URL}/cart/add`,
       {
         user_id: sessionStorage.getItem("user_id"),
         table_number: tableNumber,
@@ -77,7 +77,7 @@ export async function addCart(item, tableNumber) {
       }
     );
     console.log(response);
-    console.log("CartAdd 성공");
+    console.log("OrderAdd 성공");
     return true;
   } catch (error) {
     console.error("CartAdd 실패:", error);
@@ -85,17 +85,17 @@ export async function addCart(item, tableNumber) {
   }
 }
 
-// export async function getOrderList() {
-//   try {
-//     const response = await axios.get(`${BASE_URL}/stocks/list`, {
-//       headers: {
-//         Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-//       },
-//     });
-//     console.log(response);
-//     return response.data;
-//   } catch (error) {
-//     console.error("데이터 가져오기 실패:", error);
-//     return false;
-//   }
-// }
+export async function getOrderListAll() {
+  try {
+    const response = await axios.get(`${BASE_URL}/order/list/all`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      },
+    });
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.error("데이터 가져오기 실패:", error);
+    return false;
+  }
+}
