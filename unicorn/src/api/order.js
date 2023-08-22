@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./data";
 export async function getOrderList() {
   try {
-    const response = await axios.get(`${BASE_URL}/cart/list`, {
+    const response = await axios.get(`${BASE_URL}/order/list`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
@@ -17,7 +17,7 @@ export async function getOrderList() {
 
 export async function deleteOrder(product_id) {
   try {
-    const response = await axios.delete(`${BASE_URL}/cart/delete`, {
+    const response = await axios.delete(`${BASE_URL}/order/delete`, {
       params: {
         product_id: product_id,
       },
@@ -37,7 +37,7 @@ export async function deleteOrder(product_id) {
 export async function updateOrder(item) {
   try {
     const response = await axios.put(
-      `${BASE_URL}/cart/update`,
+      `${BASE_URL}/order/update`,
       {
         product_id: item.product_id,
         product_price: item.product_price,
@@ -61,14 +61,15 @@ export async function updateOrder(item) {
 export async function addOrder(item, tableNumber) {
   try {
     const response = await axios.post(
-      `${BASE_URL}/cart/add`,
+      `${BASE_URL}/order/add`,
       {
-        user_id: sessionStorage.getItem("user_id"),
+        store_code: "testcode",
         table_number: tableNumber,
         product_id: item.name,
         product_price: item.price,
         product_count: item.quantity,
         product_option: {},
+        product_status: true,
       },
       {
         headers: {
@@ -80,7 +81,7 @@ export async function addOrder(item, tableNumber) {
     console.log("OrderAdd 성공");
     return true;
   } catch (error) {
-    console.error("CartAdd 실패:", error);
+    console.error("OrderAdd 실패:", error);
     return false;
   }
 }

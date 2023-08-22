@@ -9,11 +9,11 @@ function App() {
   useEffect(() => {
     setScreenSize();
   });
-  // useEffect(() => {
-  //   if (sessionStorage.getItem("token")) {
-  //     refreshToken();
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (sessionStorage.getItem("token")) {
+      refreshToken();
+    }
+  }, []);
 
   return (
     <CartContextProvider>

@@ -5,7 +5,8 @@ import HeaderTitle from "../components/UI/HeaderTitle";
 import { OrderTotal } from "../components/OrderTotal";
 import { OrderItem } from "../components/OrderItem";
 import { useCartContext } from "../Context/context";
-
+import { addOrder } from "../api/order";
+import { storeAdd, storeList } from "../api/store";
 export default function ReceiptTest() {
   const [receipt, setReceipt] = useState([]);
   const { cart, setCart } = useCartContext();
@@ -13,12 +14,19 @@ export default function ReceiptTest() {
   const navigate = useNavigate();
   const getCart = async () => {
     try {
-      const data = await getCartList();
-      setReceipt(data.data.data);
+      const response = await getCartList();
+      console.log("response" + response);
+      setReceipt(response.data.data);
       console.log(cart);
     } catch (error) {
       console.error("An error occurred while fetching the cart:", error);
     }
+  };
+  const checkAdd = (item) => {
+    storeAdd(1, "test");
+  };
+  const getStore = () => {
+    storeList("test");
   };
   const cartDelete = async (product_id) => {
     try {
@@ -47,11 +55,23 @@ export default function ReceiptTest() {
     });
   };
 
+  const handleOrder = async () => {
+    try {
+      await Promise.all(receipt.map((item) => addOrder(item, tableNumber)));
+      console.log("모든 주문이 성공적으로 추가되었습니다.");
+      // navigate(`/order/${tableNumber}`, { state: { receipt: receipt } });
+    } catch (error) {
+      console.error("주문 추가 중 오류 발생:", error);
+    }
+  };
+
   useEffect(() => {
     getCart();
   }, []);
   return (
     <section className="flex flex-col relative">
+      {/* <button onClick={() => checkAdd()}>ssss</button>
+      <button onClick={() => getStore()}>aaaa</button> */}
       <HeaderTitle title={"장바구니"} />
       <div className="bg-menuSection h-[92vh] p-6">
         <div className="p-6 bg-white shadow-sm rounded-md max-w-md mx-auto flex flex-col items-start">
@@ -73,9 +93,7 @@ export default function ReceiptTest() {
       <div className="absolute bottom-0 bg-white w-full pb-6 px-6 flex flex-col justify-center gap-4 rounded-t-xl">
         <OrderTotal receipt={receipt} />
         <button
-          onClick={() =>
-            navigate(`/order/${tableNumber}`, { state: { receipt: receipt } })
-          }
+          onClick={() => handleOrder()}
           className="bg-primary text-white font-bold w-full py-2 rounded-full"
         >
           최종 주문 전송

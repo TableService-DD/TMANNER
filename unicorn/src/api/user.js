@@ -14,22 +14,21 @@ export async function getUserList() {
 
 export async function refreshToken() {
   console.log("토큰 갱신 시도");
-  console.log(sessionStorage.getItem("token"));
+  console.log(sessionStorage.getItem("refresh_token"));
   try {
     const response = await axios.post(
-      `${BASE_URL}/user/refresh`,
+      `${BASE_URL}/user/refresh?refresh_token=${sessionStorage.getItem(
+        "refresh_token"
+      )}`,
+      {},
       {
-        params: {
-          refresh_token: sessionStorage.getItem("token"),
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
       }
-      // {
-      //   headers: {
-      //     Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-      //   },
-      // }
     );
-    console.log(response);
+    sessionStorage.setItem("token", response.data.access_token);
+    return true;
   } catch (error) {
     console.error("토큰 갱신 실패:", error);
     return false;
@@ -46,6 +45,7 @@ export async function loginUser({ user_id, user_pw }) {
     });
     console.log(response.data.data);
     sessionStorage.setItem("token", response.data.data.access_token);
+    sessionStorage.setItem("refresh_token", response.data.data.refresh_token);
     sessionStorage.setItem("user_id", user_id);
     return true;
   } catch (error) {

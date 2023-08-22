@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./data";
 export async function getCartList() {
   try {
-    const response = await axios.get(`${BASE_URL}/stocks/list`, {
+    const response = await axios.get(`${BASE_URL}/cart/list`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
@@ -17,7 +17,7 @@ export async function getCartList() {
 
 export async function deleteCart(product_id) {
   try {
-    const response = await axios.delete(`${BASE_URL}/stocks/delete`, {
+    const response = await axios.delete(`${BASE_URL}/cart/delete`, {
       params: {
         product_id: product_id,
       },
@@ -37,7 +37,7 @@ export async function deleteCart(product_id) {
 export async function updateCart(item) {
   try {
     const response = await axios.put(
-      `${BASE_URL}/stocks/update`,
+      `${BASE_URL}/cart/update`,
       {
         product_id: item.product_id,
         product_price: item.product_price,
@@ -61,7 +61,7 @@ export async function updateCart(item) {
 export async function addCart(item, tableNumber) {
   try {
     const response = await axios.post(
-      `${BASE_URL}/stocks/add`,
+      `${BASE_URL}/cart/add`,
       {
         user_id: sessionStorage.getItem("user_id"),
         table_number: tableNumber,
